@@ -22,24 +22,24 @@
             <h1>Danh sách sinh viên</h1>
         </div>
         <div>
-            <asp:GridView ID="grvStudent" runat="server" AllowPaging="True" AllowSorting="True" DataKeyNames="MaSV" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" OnPageIndexChanging="grvStudent_PageIndexChanging">
+            <asp:GridView ID="grvStudent" runat="server" AllowPaging="True" AllowSorting="True" DataKeyNames="MaSV" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" OnPageIndexChanging="grvStudent_PageIndexChanging" OnRowCancelingEdit="grvStudent_RowCancelingEdit" OnRowDeleting="grvStudent_RowDeleting" OnRowEditing="grvStudent_RowEditing" OnRowUpdating="grvStudent_RowUpdating" >
                 <AlternatingRowStyle BackColor="White" />
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" HorizontalAlign="Left" Font-Size="Larger" />
-                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#EFF3FB" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" Font-Size="Medium" />
+                <RowStyle BackColor="#EFF3FB" Font-Size="12" />
                 <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                 <SortedAscendingCellStyle BackColor="#F5F7FB" />
                 <SortedAscendingHeaderStyle BackColor="#6D95E1" />
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 <Columns>
-                    <asp:BoundField DataField="MaSV" HeaderText="Mã sinh viên" />
-                    <asp:BoundField DataField="TenSV" HeaderText="Họ tên" />
-                    <asp:BoundField DataField="Phai" HeaderText="Phái" />
-                    <asp:BoundField DataField="Lop" HeaderText="Lớp" />
-                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
+                    <asp:BoundField DataField="MaSV" HeaderText="Mã sinh viên" ItemStyle-Width="15%" />
+                    <asp:BoundField DataField="TenSV" HeaderText="Họ tên" ItemStyle-Width="30%" />
+                    <asp:BoundField DataField="Phai" HeaderText="Phái" ItemStyle-Width="5%" />
+                    <asp:BoundField DataField="Lop" HeaderText="Lớp" ItemStyle-Width="15%" />
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" ItemStyle-Width="35%" />
                 </Columns>
             </asp:GridView>
         </div>
