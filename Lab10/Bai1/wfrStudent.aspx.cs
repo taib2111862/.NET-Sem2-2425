@@ -53,6 +53,7 @@ namespace Bai1
             // Get other updated values
             string tenSV = ((TextBox)row.Cells[1].Controls[0]).Text;
             string lop = ((TextBox)row.Cells[3].Controls[0]).Text.Trim();
+            lop = lop.Length > 10 ? lop.Substring(0, 10) : lop; // Limit string length
 
             // Get Checkbox Value
             CheckBox chkGender = (CheckBox)row.FindControl("chkGenderEdit");
