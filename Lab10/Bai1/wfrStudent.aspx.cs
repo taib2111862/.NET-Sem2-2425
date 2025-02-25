@@ -35,5 +35,44 @@ namespace Bai1
             grvStudent.PageIndex = e.NewPageIndex;
             loadData();
         }
+
+        protected void grvStudent_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+
+        }
+
+        protected void grvStudent_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+
+        }
+
+        protected void grvStudent_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void grvStudent_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+
+        }
+
+        protected void grvStudent_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                CheckBox chkGender = (CheckBox)e.Row.FindControl("chkGender");
+                if (chkGender != null)
+                {
+                    // Phái "1" là Nam, Phái "0" là Nữ
+                    string phaiValue = DataBinder.Eval(e.Row.DataItem, "Phai").ToString().Trim();
+                    chkGender.Checked = phaiValue == "1";
+                }
+            }
+        }
+
+        protected void grvStudent_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            grvStudent.DataKeys[e.NewSelectedIndex].Value.ToString();
+        }
     }
 }

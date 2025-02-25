@@ -22,7 +22,7 @@
             <h1>Danh sách sinh viên</h1>
         </div>
         <div>
-            <asp:GridView ID="grvStudent" runat="server" AllowPaging="True" AllowSorting="True" DataKeyNames="MaSV" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" OnPageIndexChanging="grvStudent_PageIndexChanging" OnRowCancelingEdit="grvStudent_RowCancelingEdit" OnRowDeleting="grvStudent_RowDeleting" OnRowEditing="grvStudent_RowEditing" OnRowUpdating="grvStudent_RowUpdating" >
+            <asp:GridView ID="grvStudent" runat="server" AllowPaging="True" AllowSorting="True" DataKeyNames="MaSV" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" OnPageIndexChanging="grvStudent_PageIndexChanging" OnRowDeleting="grvStudent_RowDeleting" OnRowEditing="grvStudent_RowEditing" OnRowUpdating="grvStudent_RowUpdating" OnSelectedIndexChanging="grvStudent_SelectedIndexChanging" >
                 <AlternatingRowStyle BackColor="White" />
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -37,7 +37,12 @@
                 <Columns>
                     <asp:BoundField DataField="MaSV" HeaderText="Mã sinh viên" ItemStyle-Width="15%" />
                     <asp:BoundField DataField="TenSV" HeaderText="Họ tên" ItemStyle-Width="30%" />
-                    <asp:BoundField DataField="Phai" HeaderText="Phái" ItemStyle-Width="5%" />
+                    <asp:TemplateField HeaderText="Phái">
+                        <ItemTemplate>
+                            <asp:CheckBox ID="chkGender" runat="server" Enabled="false"
+                                Checked='<%# Eval("Phai").ToString().ToLower() == "1" %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="Lop" HeaderText="Lớp" ItemStyle-Width="15%" />
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" ItemStyle-Width="35%" />
                 </Columns>
