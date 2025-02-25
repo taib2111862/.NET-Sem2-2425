@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.ModelBinding;
+using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -38,41 +39,74 @@ namespace Bai1
 
         protected void grvStudent_RowEditing(object sender, GridViewEditEventArgs e)
         {
-
+            grvStudent.EditIndex = e.NewEditIndex; // Set row to edit mode
+            loadData();
         }
 
         protected void grvStudent_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            GridViewRow row = grvStudent.Rows[e.RowIndex];
 
+            // Get Student ID (Primary Key)
+            string maSV = ((TextBox)row.Cells[0].Controls[0]).Text;
+
+            // Get other updated values
+            string tenSV = ((TextBox)row.Cells[1].Controls[0]).Text;
+            string lop = ((TextBox)row.Cells[3].Controls[0]).Text.Trim();
+
+            // Get Checkbox Value
+            CheckBox chkGender = (CheckBox)row.FindControl("chkGenderEdit");
+            string phai = chkGender.Checked ? "1" : "0"; // Convert checkbox to 1 or 0
+
+            // Update Query
+            string query = "UPDATE SinhVien SET TenSV = @TenSV, Lop = @Lop, Phai = @Phai WHERE MaSV = @MaSV";
+            db.OpenConnection();
+            // Execute SQL Update
+            using (SqlCommand cmd = new SqlCommand(query, db.con))
+            {
+                cmd.Parameters.AddWithValue("@MaSV", maSV);
+                cmd.Parameters.AddWithValue("@TenSV", tenSV);
+                cmd.Parameters.AddWithValue("@Lop", lop);
+                cmd.Parameters.AddWithValue("@Phai", phai);
+                cmd.ExecuteNonQuery();
+            }
+            db.CloseConnection();
+            // Exit edit mode and refresh data
+            grvStudent.EditIndex = -1;
+            loadData();
         }
 
         protected void grvStudent_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            // Get the primary key (Student ID)
+            string maSV = grvStudent.DataKeys[e.RowIndex].Value.ToString();
 
-        }
+            // Delete Query
+            string query = "DELETE FROM SinhVien WHERE MaSV = @MaSV";
 
-        protected void grvStudent_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-
-        }
-
-        protected void grvStudent_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            // Execute SQL Delete
+                db.OpenConnection();
+            using (SqlCommand cmd = new SqlCommand(query, db.con))
             {
-                CheckBox chkGender = (CheckBox)e.Row.FindControl("chkGender");
-                if (chkGender != null)
-                {
-                    // Phái "1" là Nam, Phái "0" là Nữ
-                    string phaiValue = DataBinder.Eval(e.Row.DataItem, "Phai").ToString().Trim();
-                    chkGender.Checked = phaiValue == "1";
-                }
+                cmd.Parameters.AddWithValue("@MaSV", maSV);
+
+                cmd.ExecuteNonQuery();
             }
+                db.CloseConnection();
+
+            // Reload data after deleting
+            loadData();
         }
 
         protected void grvStudent_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             grvStudent.DataKeys[e.NewSelectedIndex].Value.ToString();
+        }
+
+        protected void grvStudent_RowCancelingEdit1(object sender, GridViewCancelEditEventArgs e)
+        {
+            grvStudent.EditIndex = -1;
+            loadData();
         }
     }
 }
