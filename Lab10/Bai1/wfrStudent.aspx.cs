@@ -13,6 +13,7 @@ namespace Bai1
 {
     public partial class wfrStudent : System.Web.UI.Page
     {
+        // Đối tượng cơ sở dữ liệu để kết nối và thực hiện truy vấn
         clsDatabase db = new clsDatabase();
 
         // TẢI DỮ LIỆU TỪ BẢNG SinhVien LÊN DataGridView
