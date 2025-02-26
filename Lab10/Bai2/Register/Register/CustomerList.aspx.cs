@@ -45,7 +45,7 @@ namespace Register
             db.OpenConnection();
             using (SqlCommand cmd = new SqlCommand(query, db.connection))
             {
-                cmd.Parameters.AddWithValue("@MaSV", TenDN);
+                cmd.Parameters.AddWithValue("@TenDN", TenDN);
 
                 cmd.ExecuteNonQuery();
             }

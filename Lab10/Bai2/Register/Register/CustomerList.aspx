@@ -9,7 +9,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            Danh sách khách hàng</div>
+            <h1>Danh sách khách hàng</h1>
+        </div>
         <div>
             <asp:GridView ID="grvKH" runat="server" AutoGenerateColumns="False" AllowPaging="True" Width="100%" OnPageIndexChanging="grvKH_PageIndexChanging" OnRowCancelingEdit="grvKH_RowCancelingEdit" OnRowDeleting="grvKH_RowDeleting" OnRowEditing="grvKH_RowEditing" OnRowUpdating="grvKH_RowUpdating" OnSelectedIndexChanging="grvKH_SelectedIndexChanging" DataKeyNames="TenDN">
                 <AlternatingRowStyle BackColor="White" />

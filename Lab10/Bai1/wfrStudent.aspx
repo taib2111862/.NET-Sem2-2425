@@ -22,7 +22,7 @@
             <h1>Danh sách sinh viên</h1>
         </div>
         <div>
-            <asp:GridView ID="grvStudent" runat="server" AllowPaging="True" AllowSorting="True" DataKeyNames="MaSV" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" OnPageIndexChanging="grvStudent_PageIndexChanging" OnRowDeleting="grvStudent_RowDeleting" OnRowEditing="grvStudent_RowEditing" OnRowUpdating="grvStudent_RowUpdating" OnSelectedIndexChanging="grvStudent_SelectedIndexChanging" OnRowCancelingEdit="grvStudent_RowCancelingEdit1" >
+            <asp:GridView ID="grvStudent" runat="server" AllowPaging="True" AllowSorting="True" DataKeyNames="MaSV" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" OnPageIndexChanging="grvStudent_PageIndexChanging" OnRowDeleting="grvStudent_RowDeleting" OnRowEditing="grvStudent_RowEditing" OnRowUpdating="grvStudent_RowUpdating" OnSelectedIndexChanging="grvStudent_SelectedIndexChanging" OnRowCancelingEdit="grvStudent_RowCancelingEdit" >
                 <AlternatingRowStyle BackColor="White" />
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
