@@ -1,7 +1,4 @@
-﻿delete from SinhVien;
-go
-
-create database QLSV;
+﻿create database QLSV;
 go
 
 use QLSV;

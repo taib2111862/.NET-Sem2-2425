@@ -32,6 +32,7 @@ namespace Register
         {
             // Kiểm tra nếu trang không phải là PostBack thì mới gọi getKhachHang()
             if (!IsPostBack) { getKhachHang(); }
+            
         }
         // Xử lý phân trang cho GridView
         protected void grvKH_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -89,9 +90,9 @@ namespace Register
 
             // Kiểm tra Ngày sinh có đúng định dạng "dd/MM/yyyy hh:mm:ss tt" hay không
             DateTime dt;
-            if (!DateTime.TryParseExact(ngaySinh, "dd/MM/yyyy hh:mm:ss tt", new CultureInfo("vi-VN"), DateTimeStyles.None, out dt))
+            if (!DateTime.TryParseExact(ngaySinh, "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dt))
             {
-                errors.Add("Ngày sinh không đúng định dạng (dd/MM/yyyy hh:mm:ss tt).");
+                errors.Add("Ngày sinh không đúng định dạng (MM/dd/yyyy hh:mm:ss tt).");
             }
 
             // Nếu có lỗi, hiển thị lên ValidationSummary và hủy cập nhật

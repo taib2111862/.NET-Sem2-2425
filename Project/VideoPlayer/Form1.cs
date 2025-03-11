@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace VideoPlayer
 {
-    public partial class Form1 : Form
+    public partial class frmMediaPlayer : Form
     {
-        public Form1()
+        public frmMediaPlayer()
         {
             InitializeComponent();
+        }
+
+        private void OpenFileEvent(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VideoPlayerStateChangeEvent(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+
         }
     }
 }
