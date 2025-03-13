@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,60 +18,119 @@ namespace VideoPlayer
     {
         List<string> filteredFiles = new List<string>();
         int currentFile = 0;
-        FolderBrowserDialog browser = new FolderBrowserDialog();
+        OpenFileDialog browser = new OpenFileDialog();
+        private VideoDatabaseManager dbManager; 
 
         public frmMediaPlayer()
         {
             InitializeComponent();
+            dbManager = new VideoDatabaseManager();
+
+            // Hiển thị tooltip (title day du) khi di chuột qua các video trong Playlist
+            ToolTip toolTip = new ToolTip();
+            PlayList.MouseMove += (sender, e) =>
+            {
+                int index = PlayList.IndexFromPoint(e.Location);
+                if (index >= 0 && index < PlayList.Items.Count)
+                {
+                    string title = PlayList.Items[index].ToString();
+                    toolTip.SetToolTip(PlayList, title);
+                }
+            };
+
+            LoadVideosFromDatabase();
         }
 
         private void OpenFileEvent(object sender, EventArgs e)
         {
             VideoPlayer.Ctlcontrols.stop();
-            if (filteredFiles.Count > 1)
+            OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                filteredFiles.Clear();
-                filteredFiles = null;
-                PlayList.Items.Clear();
-                currentFile = 0;
-            }
-            DialogResult result = browser.ShowDialog();
-            if (result == DialogResult.OK)
+                Filter = "Video Files (*.mp4;*.avi;*.mkv)|*.mp4;*.avi;*.mkv|All Files (*.*)|*.*", 
+                Multiselect = true, 
+                Title = "Chọn video để upload"
+            };
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                filteredFiles = Directory.GetFiles(browser.SelectedPath, "*.*")
-                    .Where(file => file.ToLower().EndsWith("webm") ||
-                                   file.ToLower().EndsWith("mp4") ||
-                                   file.ToLower().EndsWith("wmv") ||
-                                   file.ToLower().EndsWith("mkv") ||
-                                   file.ToLower().EndsWith("avi"))
-                    .ToList();
-                LoadPlayList();
+                int addCount = 0;
+                string lastURl = "";// Lưu trữ url cuối cùng sẽ được play sau khi thêm vao database
+                foreach (string filePath in openFileDialog.FileNames)
+                {
+                    try
+                    {
+                        if (!dbManager.CheckFilePathExists(filePath)) // Kiểm tra filepath
+                        {
+                            dbManager.InsertVideoToDatabase(filePath);
+                            filteredFiles.Add(filePath);
+                            addCount++;
+                        }
+                        else
+                        {
+                            dbManager.UpdateLastOpened(filePath); // Cập nhật last_opened nếu đã tồn tại
+                            MessageBox.Show($"Video đã tồn tại, cập nhật last_opened: {Path.GetFileName(filePath)}");
+                        }
+                        lastURl = filePath;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                if(addCount > 0)
+                {
+                    MessageBox.Show("Video đã được thêm vào database!");
+                }
+                PlayFile(lastURl);
+                
             }
         }
-        private void LoadPlayList()
+        private void LoadVideosFromDatabase()
         {
-            VideoPlayer.currentPlaylist = VideoPlayer.newPlaylist("PlayList", "");
-            foreach (string videos in filteredFiles)
+            try
             {
-                VideoPlayer.currentPlaylist.appendItem(VideoPlayer.newMedia(videos));
-                PlayList.Items.Add(videos);
+                DataTable videos = dbManager.GetAllVideos();
+                filteredFiles.Clear();
+                PlayList.Items.Clear();
+                VideoPlayer.currentPlaylist = VideoPlayer.newPlaylist("PlayList", "");
+
+                foreach (DataRow row in videos.Rows)
+                {
+                    string filePath = row["vid_filepath"].ToString();
+                    string title = row["vid_title"].ToString();
+                    if (File.Exists(filePath)) // Kiểm tra file tồn tại
+                    {
+                        filteredFiles.Add(filePath);
+                        PlayList.Items.Add(title); // Hiển thị tiêu đề trong ListBox
+                        VideoPlayer.currentPlaylist.appendItem(VideoPlayer.newMedia(filePath));
+                    }
+                }
+
+                if (PlayList.Items.Count > 0)
+                {
+                    PlayList.SelectedIndex = currentFile;
+                    PlayFile(filteredFiles[currentFile]); // Phát video đầu tiên
+                }
             }
-            if (filteredFiles.Count > 0)
+            catch (Exception ex)
             {
-                
-                PlayList.SelectedIndex = currentFile;
-                PlayFile(PlayList.SelectedItem.ToString());
-                
+                MessageBox.Show(ex.Message);
             }
-            else
+        }
+
+        private void PlayList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (PlayList.SelectedIndex >= 0)
             {
-                MessageBox.Show("No Video Files Found in this folder");
+                currentFile = PlayList.SelectedIndex;
+                string selectedFilePath = filteredFiles[currentFile];
+                PlayFile(selectedFilePath);
             }
         }
 
         private void PlayFile(string url)
         {
             VideoPlayer.URL = url;
+            dbManager.UpdateLastOpened(url);
         }
 
         private void VideoPlayerStateChangeEvent(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)

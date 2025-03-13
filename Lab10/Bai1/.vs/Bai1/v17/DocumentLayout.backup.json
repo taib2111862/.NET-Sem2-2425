@@ -1,0 +1,81 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\thait\\LABS\\.Net\\project\\Lab10\\Bai1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF78D3F-BE89-48AE-8D3A-C12593C7B1B5}|Bai1.csproj|c:\\users\\thait\\labs\\.net\\project\\lab10\\bai1\\wfrstudent.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{CDF78D3F-BE89-48AE-8D3A-C12593C7B1B5}|Bai1.csproj|solutionrelative:wfrstudent.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF78D3F-BE89-48AE-8D3A-C12593C7B1B5}|Bai1.csproj|C:\\Users\\thait\\LABS\\.Net\\project\\Lab10\\Bai1\\wfrstudent.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF78D3F-BE89-48AE-8D3A-C12593C7B1B5}|Bai1.csproj|solutionrelative:wfrstudent.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF78D3F-BE89-48AE-8D3A-C12593C7B1B5}|Bai1.csproj|C:\\Users\\thait\\LABS\\.Net\\project\\Lab10\\Bai1\\clsdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF78D3F-BE89-48AE-8D3A-C12593C7B1B5}|Bai1.csproj|solutionrelative:clsdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "wfrStudent.aspx",
+              "DocumentMoniker": "C:\\Users\\thait\\LABS\\.Net\\project\\Lab10\\Bai1\\wfrStudent.aspx",
+              "RelativeDocumentMoniker": "wfrStudent.aspx",
+              "ToolTip": "C:\\Users\\thait\\LABS\\.Net\\project\\Lab10\\Bai1\\wfrStudent.aspx",
+              "RelativeToolTip": "wfrStudent.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-03-13T08:05:21.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "wfrStudent.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\thait\\LABS\\.Net\\project\\Lab10\\Bai1\\wfrStudent.aspx.cs",
+              "RelativeDocumentMoniker": "wfrStudent.aspx.cs",
+              "ToolTip": "C:\\Users\\thait\\LABS\\.Net\\project\\Lab10\\Bai1\\wfrStudent.aspx.cs",
+              "RelativeToolTip": "wfrStudent.aspx.cs",
+              "ViewState": "AQIAAG4AAAAAAAAAAAAswHQAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
+              "WhenOpened": "2025-03-13T08:05:21.229Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "clsDatabase.cs",
+              "DocumentMoniker": "C:\\Users\\thait\\LABS\\.Net\\project\\Lab10\\Bai1\\clsDatabase.cs",
+              "RelativeDocumentMoniker": "clsDatabase.cs",
+              "ToolTip": "C:\\Users\\thait\\LABS\\.Net\\project\\Lab10\\Bai1\\clsDatabase.cs",
+              "RelativeToolTip": "clsDatabase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T08:05:21.231Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
