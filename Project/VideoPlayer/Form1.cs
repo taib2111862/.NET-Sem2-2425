@@ -26,5 +26,19 @@ namespace VideoPlayer
         {
 
         }
+
+        private void TimerEvent(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoadCategory()
+        {
+
+        }
+
+        private void LoadTags() {
+        
+        }
     }
 }
