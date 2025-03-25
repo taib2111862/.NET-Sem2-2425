@@ -67,6 +67,12 @@
     <Compile Include="SelectTagsForm.Designer.cs">
       <DependentUpon>SelectTagsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateVideoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateVideoForm.Designer.cs">
+      <DependentUpon>UpdateVideoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="VideoDatabaseManager.cs" />
     <Compile Include="clsDatabase.cs" />
     <Compile Include="Form1.cs">

@@ -41,7 +41,7 @@ namespace VideoPlayer
         public DataTable GetVideosForDataGrid()
         {
             string query = @"
-        SELECT v.vid_id, v.vid_title, v.vid_filepath, v.last_opened, v.cat_id, c.cat_name AS CategoryName
+        SELECT v.vid_id, v.vid_title, v.vid_filepath, v.vid_description,v.vid_duration,v.cat_id, c.cat_name AS CategoryName
         FROM Videos v
         LEFT JOIN Categories c ON v.cat_id = c.cat_id
         ORDER BY v.last_opened DESC";
@@ -158,17 +158,31 @@ namespace VideoPlayer
         // Nhóm các tính năng Insert (hàm hiện tại của bạn, giữ nguyên)
         public void InsertVideoToDatabase(string filePath)
         {
+            // Kiểm tra xem vid_filepath đã tồn tại hay chưa
+            string checkQuery = "SELECT COUNT(*) FROM Videos WHERE vid_filepath = @filepath";
+            db.OpenConnection();
+            using (SqlCommand checkCmd = new SqlCommand(checkQuery, db.con))
+            {
+                checkCmd.Parameters.AddWithValue("@filepath", filePath);
+                int count = Convert.ToInt32(checkCmd.ExecuteScalar());
+                if (count > 0)
+                {
+                    db.CloseConnection();
+                    throw new Exception($"Video với đường dẫn '{filePath}' đã tồn tại trong database. Vui lòng chọn một video khác.");
+                }
+            }
+
             string vidTitle = Path.GetFileNameWithoutExtension(filePath);
             string vidDescription = "Chưa có mô tả";
             TimeSpan vidDuration = GetVideoDuration(filePath);
             string formattedDuration = vidDuration.ToString(@"hh\:mm\:ss");
 
             string query = @"
-                INSERT INTO Videos (vid_title, vid_filepath, vid_description, vid_duration)
-                VALUES (@title, @filepath, @description, @duration)";
+        INSERT INTO Videos (vid_title, vid_filepath, vid_description, vid_duration)
+        VALUES (@title, @filepath, @description, @duration)";
+
             try
             {
-                db.OpenConnection();
                 using (SqlCommand cmd = new SqlCommand(query, db.con))
                 {
                     cmd.Parameters.AddWithValue("@title", vidTitle);
@@ -187,21 +201,35 @@ namespace VideoPlayer
             }
         }
 
+
         // Hàm mới: Thêm video cho DataGridView
         public int InsertVideoForDataGrid(string filePath, string title, int catId, List<int> tagIds)
         {
+            // Kiểm tra xem vid_filepath đã tồn tại hay chưa
+            string checkQuery = "SELECT COUNT(*) FROM Videos WHERE vid_filepath = @filepath";
+            db.OpenConnection();
+            using (SqlCommand checkCmd = new SqlCommand(checkQuery, db.con))
+            {
+                checkCmd.Parameters.AddWithValue("@filepath", filePath);
+                int count = Convert.ToInt32(checkCmd.ExecuteScalar());
+                if (count > 0)
+                {
+                    db.CloseConnection();
+                    throw new Exception($"Video với đường dẫn '{filePath}' đã tồn tại trong database. Vui lòng chọn một video khác.");
+                }
+            }
+
             string vidDescription = "Chưa có mô tả";
             TimeSpan vidDuration = GetVideoDuration(filePath);
             string formattedDuration = vidDuration.ToString(@"hh\:mm\:ss");
 
             string query = @"
-                INSERT INTO Videos (vid_title, vid_filepath, vid_description, vid_duration, cat_id)
-                VALUES (@title, @filepath, @description, @duration, @catId);
-                SELECT SCOPE_IDENTITY();"; // Trả về ID của video vừa thêm
+        INSERT INTO Videos (vid_title, vid_filepath, vid_description, vid_duration, cat_id)
+        VALUES (@title, @filepath, @description, @duration, @catId);
+        SELECT SCOPE_IDENTITY();"; // Trả về ID của video vừa thêm
 
             try
             {
-                db.OpenConnection();
                 int vidId;
                 using (SqlCommand cmd = new SqlCommand(query, db.con))
                 {

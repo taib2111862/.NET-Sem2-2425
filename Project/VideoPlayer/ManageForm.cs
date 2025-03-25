@@ -27,18 +27,7 @@ namespace VideoPlayer
             LoadCategories();
             LoadTags();
 
-            // Set up ComboBox column for categories in dgvVideos
-            DataGridViewComboBoxColumn categoryColumn = new DataGridViewComboBoxColumn
-            {
-                DataPropertyName = "cat_id",
-                HeaderText = "Category",
-                DataSource = dtCategories,
-                ValueMember = "cat_id",
-                DisplayMember = "cat_name"
-            };
-            dgvVideos.Columns.Add(categoryColumn);
-
-            // Add TagsDisplay and SelectTags columns only once
+            // Add TagsDisplay column only once
             if (dgvVideos.Columns["TagsDisplay"] == null)
             {
                 DataGridViewTextBoxColumn tagsDisplayColumn = new DataGridViewTextBoxColumn
@@ -50,24 +39,11 @@ namespace VideoPlayer
                 dgvVideos.Columns.Add(tagsDisplayColumn);
             }
 
-            if (dgvVideos.Columns["SelectTags"] == null)
-            {
-                DataGridViewButtonColumn btnSelectTagsColumn = new DataGridViewButtonColumn
-                {
-                    Name = "SelectTags",
-                    HeaderText = "Select Tags",
-                    Text = "Select",
-                    UseColumnTextForButtonValue = true
-                };
-                dgvVideos.Columns.Add(btnSelectTagsColumn);
-            }
-
             // Handle CellFormatting to display tag names
             dgvVideos.CellFormatting += (sender, e) =>
             {
                 if (e.ColumnIndex == dgvVideos.Columns["TagsDisplay"].Index && e.RowIndex >= 0)
                 {
-                    // Lấy DataRow tương ứng từ DataTable dtVideos
                     DataRow row = (dgvVideos.Rows[e.RowIndex].DataBoundItem as DataRowView)?.Row;
                     if (row != null)
                     {
@@ -89,30 +65,6 @@ namespace VideoPlayer
                     else
                     {
                         e.Value = "";
-                    }
-                }
-            };
-
-            // Handle button click to select tags
-            dgvVideos.CellContentClick += (sender, e) =>
-            {
-                if (e.ColumnIndex == dgvVideos.Columns["SelectTags"].Index && e.RowIndex >= 0)
-                {
-                    // Lấy DataRow tương ứng từ DataTable dtVideos
-                    DataRow row = (dgvVideos.Rows[e.RowIndex].DataBoundItem as DataRowView)?.Row;
-                    if (row != null)
-                    {
-                        string tagIds = row["TagIds"]?.ToString();
-                        List<int> selectedTagIds = string.IsNullOrEmpty(tagIds)
-                            ? new List<int>()
-                            : tagIds.Split(',').Select(id => int.Parse(id)).ToList();
-
-                        var selectTagsForm = new SelectTagsForm(dtTags, selectedTagIds);
-                        if (selectTagsForm.ShowDialog() == DialogResult.OK)
-                        {
-                            row["TagIds"] = string.Join(",", selectTagsForm.SelectedTagIds);
-                            dgvVideos.Refresh();
-                        }
                     }
                 }
             };
@@ -143,6 +95,18 @@ namespace VideoPlayer
             if (dgvVideos.Columns["TagIds"] != null)
             {
                 dgvVideos.Columns.Remove("TagIds");
+            }
+
+            // Remove the cat_id column (we'll display CategoryName instead)
+            if (dgvVideos.Columns["cat_id"] != null)
+            {
+                dgvVideos.Columns.Remove("cat_id");
+            }
+
+            // Rename CategoryName to Category
+            if (dgvVideos.Columns["CategoryName"] != null)
+            {
+                dgvVideos.Columns["CategoryName"].HeaderText = "Category";
             }
 
             // Bind the DataTable to the DataGridView
@@ -320,9 +284,16 @@ namespace VideoPlayer
                         tagIds = selectTagsForm.SelectedTagIds;
                     }
 
-                    dbManager.InsertVideoForDataGrid(filePath, title, catId, tagIds);
-                    LoadVideos();
-                    MessageBox.Show("Video added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    try
+                    {
+                        dbManager.InsertVideoForDataGrid(filePath, title, catId, tagIds);
+                        LoadVideos();
+                        MessageBox.Show("Video added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -346,50 +317,11 @@ namespace VideoPlayer
             }
         }
 
-        //private void btnUpdateVideo_Click(object sender, EventArgs e)
-        //{
-        //    if (dgvVideos.SelectedRows.Count > 0)
-        //    {
-        //        int vidId = Convert.ToInt32(dgvVideos.SelectedRows[0].Cells["vid_id"].Value);
-        //        string currentTitle = dgvVideos.SelectedRows[0].Cells["vid_title"].Value.ToString();
-        //        int currentCatId = Convert.ToInt32(dgvVideos.SelectedRows[0].Cells["cat_id"].Value);
-        //        DataRow row = (dgvVideos.SelectedRows[0].DataBoundItem as DataRowView)?.Row;
-        //        string tagIds = row?["TagIds"]?.ToString();
-        //        List<int> currentTagIds = string.IsNullOrEmpty(tagIds)
-        //            ? new List<int>()
-        //            : tagIds.Split(',').Select(id => int.Parse(id)).ToList();
-
-        //        var inputForm = new InputForm("Enter updated video title:", "Update Video", currentTitle);
-        //        if (inputForm.ShowDialog() == DialogResult.OK)
-        //        {
-        //            string updatedTitle = inputForm.InputValue;
-        //            if (string.IsNullOrWhiteSpace(updatedTitle))
-        //            {
-        //                MessageBox.Show("Video title cannot be empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //                return;
-        //            }
-
-        //            var selectTagsForm = new SelectTagsForm(dtTags, currentTagIds);
-        //            if (selectTagsForm.ShowDialog() == DialogResult.OK)
-        //            {
-        //                currentTagIds = selectTagsForm.SelectedTagIds;
-        //            }
-
-        //            dbManager.UpdateVideo(vidId, updatedTitle, currentCatId, currentTagIds);
-        //            LoadVideos();
-        //            MessageBox.Show("Video updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Please select a video to update!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
         private void btnUpdateVideo_Click(object sender, EventArgs e)
         {
             if (dgvVideos.SelectedRows.Count > 0)
             {
-                // Lấy DataRow từ DataTable để truy cập dữ liệu an toàn hơn
+                // Lấy DataRow từ DataTable
                 DataRow row = (dgvVideos.SelectedRows[0].DataBoundItem as DataRowView)?.Row;
                 if (row == null)
                 {
@@ -399,40 +331,17 @@ namespace VideoPlayer
 
                 int vidId = Convert.ToInt32(row["vid_id"]);
                 string currentTitle = row["vid_title"].ToString();
-
-                // Lấy cat_id từ DataTable và xử lý giá trị null
-                int currentCatId;
-                object catIdValue = row["cat_id"];
-                if (catIdValue == null || catIdValue == DBNull.Value)
-                {
-                    MessageBox.Show("Category ID không hợp lệ! Vui lòng chọn một category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                currentCatId = Convert.ToInt32(catIdValue);
-
-                // Lấy TagIds từ DataTable
+                int currentCatId = row["cat_id"] != DBNull.Value ? Convert.ToInt32(row["cat_id"]) : 0;
                 string tagIds = row["TagIds"]?.ToString();
                 List<int> currentTagIds = string.IsNullOrEmpty(tagIds)
                     ? new List<int>()
                     : tagIds.Split(',').Select(id => int.Parse(id)).ToList();
 
-                var inputForm = new InputForm("Enter updated video title:", "Update Video", currentTitle);
-                if (inputForm.ShowDialog() == DialogResult.OK)
+                // Hiển thị form cập nhật video
+                var updateForm = new UpdateVideoForm(currentTitle, currentCatId, currentTagIds, dtCategories, dtTags);
+                if (updateForm.ShowDialog() == DialogResult.OK)
                 {
-                    string updatedTitle = inputForm.InputValue;
-                    if (string.IsNullOrWhiteSpace(updatedTitle))
-                    {
-                        MessageBox.Show("Video title cannot be empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    var selectTagsForm = new SelectTagsForm(dtTags, currentTagIds);
-                    if (selectTagsForm.ShowDialog() == DialogResult.OK)
-                    {
-                        currentTagIds = selectTagsForm.SelectedTagIds;
-                    }
-
-                    dbManager.UpdateVideo(vidId, updatedTitle, currentCatId, currentTagIds);
+                    dbManager.UpdateVideo(vidId, updateForm.UpdatedTitle, updateForm.UpdatedCatId, updateForm.UpdatedTagIds);
                     LoadVideos();
                     MessageBox.Show("Video updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
