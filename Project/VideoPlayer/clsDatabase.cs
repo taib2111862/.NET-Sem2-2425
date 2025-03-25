@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 public class clsDatabase
 {
-    private readonly string connectionString = "Data Source=LAPTOP-TQ7FJ0PB;Initial Catalog=Video;Integrated Security=True;";
+    private readonly string connectionString = "Data Source=LAPTOP-TQ7FJ0PB;Initial Catalog=Video;Integrated Security=True;Encrypt=False";
     public SqlConnection con; // lưu trữ kết nối đến SQL Server
 
     // Hàm mở kết nối

@@ -39,7 +39,6 @@
             this.tagsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.videosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tblMediaPlayer = new System.Windows.Forms.TableLayoutPanel();
-            this.VideoPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.tblVideoInformation = new System.Windows.Forms.TableLayoutPanel();
             this.tabVideoInformation = new System.Windows.Forms.TabControl();
             this.tabVideos = new System.Windows.Forms.TabPage();
@@ -69,9 +68,9 @@
             this.lblAddTag = new System.Windows.Forms.Label();
             this.lblVideoTitle = new System.Windows.Forms.Label();
             this.tmrTimer = new System.Windows.Forms.Timer(this.components);
+            this.VideoPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.menuStrip1.SuspendLayout();
             this.tblMediaPlayer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.VideoPlayer)).BeginInit();
             this.tblVideoInformation.SuspendLayout();
             this.tabVideoInformation.SuspendLayout();
             this.tabVideos.SuspendLayout();
@@ -82,6 +81,7 @@
             this.tabTags.SuspendLayout();
             this.tblTags.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VideoPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -134,19 +134,19 @@
             // categoriesToolStripMenuItem
             // 
             this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
-            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
+            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(207, 36);
             this.categoriesToolStripMenuItem.Text = "Categories";
             // 
             // tagsToolStripMenuItem
             // 
             this.tagsToolStripMenuItem.Name = "tagsToolStripMenuItem";
-            this.tagsToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
+            this.tagsToolStripMenuItem.Size = new System.Drawing.Size(207, 36);
             this.tagsToolStripMenuItem.Text = "Tags";
             // 
             // videosToolStripMenuItem
             // 
             this.videosToolStripMenuItem.Name = "videosToolStripMenuItem";
-            this.videosToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
+            this.videosToolStripMenuItem.Size = new System.Drawing.Size(207, 36);
             this.videosToolStripMenuItem.Text = "Videos";
             // 
             // tblMediaPlayer
@@ -164,18 +164,6 @@
             this.tblMediaPlayer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.67347F));
             this.tblMediaPlayer.Size = new System.Drawing.Size(2169, 951);
             this.tblMediaPlayer.TabIndex = 5;
-            // 
-            // VideoPlayer
-            // 
-            this.VideoPlayer.Enabled = true;
-            this.VideoPlayer.Location = new System.Drawing.Point(0, 0);
-            this.VideoPlayer.Margin = new System.Windows.Forms.Padding(0);
-            this.VideoPlayer.Name = "VideoPlayer";
-            this.VideoPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("VideoPlayer.OcxState")));
-            this.VideoPlayer.Size = new System.Drawing.Size(662, 424);
-            this.VideoPlayer.TabIndex = 5;
-            this.VideoPlayer.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.VideoPlayerStateChangeEvent);
-            this.VideoPlayer.Enter += new System.EventHandler(this.VideoPlayer_Enter);
             // 
             // tblVideoInformation
             // 
@@ -519,6 +507,18 @@
             // 
             this.tmrTimer.Tick += new System.EventHandler(this.TimerEvent);
             // 
+            // VideoPlayer
+            // 
+            this.VideoPlayer.Enabled = true;
+            this.VideoPlayer.Location = new System.Drawing.Point(0, 0);
+            this.VideoPlayer.Margin = new System.Windows.Forms.Padding(0);
+            this.VideoPlayer.Name = "VideoPlayer";
+            this.VideoPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("VideoPlayer.OcxState")));
+            this.VideoPlayer.Size = new System.Drawing.Size(662, 424);
+            this.VideoPlayer.TabIndex = 5;
+            this.VideoPlayer.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.VideoPlayerStateChangeEvent);
+            this.VideoPlayer.Enter += new System.EventHandler(this.VideoPlayer_Enter);
+            // 
             // frmMediaPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -533,7 +533,6 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tblMediaPlayer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.VideoPlayer)).EndInit();
             this.tblVideoInformation.ResumeLayout(false);
             this.tblVideoInformation.PerformLayout();
             this.tabVideoInformation.ResumeLayout(false);
@@ -549,6 +548,7 @@
             this.tblTags.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VideoPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -13,9 +13,9 @@ namespace VideoPlayer
     public partial class SelectTagsForm : Form
     {
         public List<int> SelectedTagIds { get; private set; }
-        private List<Tag> tags;
+        private DataTable tags;
 
-        public SelectTagsForm(List<Tag> tags, List<int> selectedTagIds)
+        public SelectTagsForm(DataTable tags, List<int> selectedTagIds)
         {
             InitializeComponent();
 
@@ -23,22 +23,23 @@ namespace VideoPlayer
             SelectedTagIds = selectedTagIds ?? new List<int>();
 
             // Populate CheckedListBox with tags
-            foreach (var tag in tags)
+            foreach (DataRow row in tags.Rows)
             {
-                clbTags.Items.Add(tag.Name, SelectedTagIds.Contains(tag.Id));
+                int tagId = row.Field<int>("tag_id");
+                string tagName = row.Field<string>("tag_name");
+                clbTags.Items.Add(tagName, SelectedTagIds.Contains(tagId));
             }
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            // Get selected tag IDs
             SelectedTagIds = new List<int>();
             for (int i = 0; i < clbTags.Items.Count; i++)
             {
                 if (clbTags.GetItemChecked(i))
                 {
-                    var tag = tags[i];
-                    SelectedTagIds.Add(tag.Id);
+                    int tagId = tags.Rows[i].Field<int>("tag_id");
+                    SelectedTagIds.Add(tagId);
                 }
             }
             DialogResult = DialogResult.OK;
@@ -51,4 +52,4 @@ namespace VideoPlayer
             Close();
         }
     }
-}       
+}

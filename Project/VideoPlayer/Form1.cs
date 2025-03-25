@@ -165,6 +165,7 @@ namespace VideoPlayer
         private void categoriesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Mở ManageForm và chọn tab Categories (index 0)
+            VideoPlayer.Ctlcontrols.stop();
             ManageForm manageForm = new ManageForm(0);
             manageForm.Show();
         }
@@ -172,6 +173,7 @@ namespace VideoPlayer
         private void tagsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Mở ManageForm và chọn tab Tags (index 1)
+            VideoPlayer.Ctlcontrols.stop();
             ManageForm manageForm = new ManageForm(1);
             manageForm.Show();
         }
@@ -179,6 +181,7 @@ namespace VideoPlayer
         private void videosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Mở ManageForm và chọn tab Videos (index 2)
+            VideoPlayer.Ctlcontrols.stop();
             ManageForm manageForm = new ManageForm(2);
             manageForm.Show();
         }
