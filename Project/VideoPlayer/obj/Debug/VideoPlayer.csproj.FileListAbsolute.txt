@@ -28,3 +28,4 @@ C:\Users\thait\LABS\.Net\project\Project\VideoPlayer\obj\Debug\VideoPlayer.cspro
 C:\Users\thait\LABS\.Net\project\Project\VideoPlayer\obj\Debug\VideoPlayer.csproj.CoreCompileInputs.cache
 C:\Users\thait\LABS\.Net\project\Project\VideoPlayer\obj\Debug\VideoPlayer.exe
 C:\Users\thait\LABS\.Net\project\Project\VideoPlayer\obj\Debug\VideoPlayer.pdb
+C:\Users\thait\LABS\.Net\project\Project\VideoPlayer\obj\Debug\VideoPlayer.ManageForm.resources

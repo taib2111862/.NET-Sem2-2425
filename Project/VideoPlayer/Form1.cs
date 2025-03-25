@@ -24,6 +24,11 @@ namespace VideoPlayer
         public frmMediaPlayer()
         {
             InitializeComponent();
+
+            categoriesToolStripMenuItem.Click += new EventHandler(categoriesToolStripMenuItem_Click);
+            tagsToolStripMenuItem.Click += new EventHandler(tagsToolStripMenuItem_Click);
+            videosToolStripMenuItem.Click += new EventHandler(videosToolStripMenuItem_Click);
+
             dbManager = new VideoDatabaseManager();
 
             // Hiển thị tooltip (title day du) khi di chuột qua các video trong Playlist
@@ -156,5 +161,27 @@ namespace VideoPlayer
         {
 
         }
+
+        private void categoriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Mở ManageForm và chọn tab Categories (index 0)
+            ManageForm manageForm = new ManageForm(0);
+            manageForm.Show();
+        }
+
+        private void tagsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Mở ManageForm và chọn tab Tags (index 1)
+            ManageForm manageForm = new ManageForm(1);
+            manageForm.Show();
+        }
+
+        private void videosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Mở ManageForm và chọn tab Videos (index 2)
+            ManageForm manageForm = new ManageForm(2);
+            manageForm.Show();
+        }
+
     }
 }
