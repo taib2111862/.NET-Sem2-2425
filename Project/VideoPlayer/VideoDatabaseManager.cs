@@ -68,36 +68,7 @@ namespace VideoPlayer
             }
         }
 
-        //public DataTable GetVideosByTag(int tagId)
-        //{
-        //    string query = @"
-        //SELECT v.vid_id, v.vid_filepath, v.vid_title
-        //FROM Videos v
-        //INNER JOIN VideoTags vt ON vt.vid_id = v.vid_id
-        //WHERE vt.tag_id = @tagId";
-
-        //    try
-        //    {
-        //        db.OpenConnection();
-        //        using (SqlCommand cmd = new SqlCommand(query, db.con))
-        //        {
-        //            cmd.Parameters.AddWithValue("@tagId", tagId);
-        //            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-        //            DataTable videos = new DataTable();
-        //            adapter.Fill(videos);
-        //            return videos;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception("Error retrieving videos by tag: " + ex.Message);
-        //    }
-        //    finally
-        //    {
-        //        db.CloseConnection();
-        //    }
-        //}
-
+        
         // Nhóm lấy danh sách video cho theo Tag
         public DataTable GetVideosByTag(int tagId)
         {

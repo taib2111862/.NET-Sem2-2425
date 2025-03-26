@@ -47,16 +47,9 @@ namespace VideoPlayer
             dbManager = new VideoDatabaseManager();
 
             // Hiển thị tooltip (title day du) khi di chuột qua các video trong Playlist
-            ToolTip toolTip = new ToolTip();
-            PlayList.MouseMove += (sender, e) =>
-            {
-                int index = PlayList.IndexFromPoint(e.Location);
-                if (index >= 0 && index < PlayList.Items.Count)
-                {
-                    string title = PlayList.Items[index].ToString();
-                    toolTip.SetToolTip(PlayList, title);
-                }
-            };
+            CreateToolTrip();
+
+
 
             LoadVideosFromDatabase();
         }
@@ -524,5 +517,58 @@ namespace VideoPlayer
                 return TagName; // Hiển thị tag_name trong ListBox
             }
         }
+
+        private void CreateToolTrip()
+        {
+            ToolTip toolTip = new ToolTip();
+            PlayList.MouseMove += (sender, e) =>
+            {
+                int index = PlayList.IndexFromPoint(e.Location);
+                if (index >= 0 && index < PlayList.Items.Count)
+                {
+                    string title = PlayList.Items[index].ToString();
+                    toolTip.SetToolTip(PlayList, title);
+                }
+            };
+
+            lstVideosWithCategory.MouseMove += (sender, e) =>
+            {
+                int index = lstVideosWithCategory.IndexFromPoint(e.Location);
+                if (index >= 0 && index < lstVideosWithCategory.Items.Count)
+                {
+                    string title = lstVideosWithCategory.Items[index].ToString();
+                    toolTip.SetToolTip(lstVideosWithCategory, title);
+                }
+            };
+            lstVideosWithSameTag.MouseMove += (sender, e) =>
+            {
+                int index = lstVideosWithSameTag.IndexFromPoint(e.Location);
+                if (index >= 0 && index < lstVideosWithSameTag.Items.Count)
+                {
+                    string title = lstVideosWithSameTag.Items[index].ToString();
+                    toolTip.SetToolTip(lstVideosWithSameTag, title);
+                }
+            };
+            lstVideosWithSameTag.MouseMove += (sender, e) =>
+            {
+                int index = lstVideosWithSameTag.IndexFromPoint(e.Location);
+                if (index >= 0 && index < lstVideosWithSameTag.Items.Count)
+                {
+                    string title = lstVideosWithSameTag.Items[index].ToString();
+                    toolTip.SetToolTip(lstVideosWithSameTag, title);
+                }
+            };
+            lstVideoTags.MouseMove += (sender, e) =>
+            {
+                int index = lstVideoTags.IndexFromPoint(e.Location);
+                if (index >= 0 && index < lstVideoTags.Items.Count)
+                {
+                    TagItem tag = (TagItem)lstVideoTags.Items[index];
+                    toolTip.SetToolTip(lstVideoTags, tag.TagName);
+                }
+            };
+        }
+        
+        
     }
 }
