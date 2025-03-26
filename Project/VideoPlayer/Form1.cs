@@ -140,6 +140,13 @@ namespace VideoPlayer
             dbManager.UpdateLastOpened(url);
         }
 
+
+
+
+
+
+
+
         private void VideoPlayerStateChangeEvent(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
         {
 

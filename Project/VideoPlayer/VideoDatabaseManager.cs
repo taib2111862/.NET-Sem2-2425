@@ -37,6 +37,65 @@ namespace VideoPlayer
             }
         }
 
+        // Nhóm lấy danh sách video cho theo Category
+        public DataTable GetVideosByCategory(int catId)
+        {
+            string query = @"SELECT vid_filepath, vid_title, last_opened, cat_id FROM Videos 
+                            where cat_id = @catId
+                            ORDER BY last_opened DESC;";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, db.con))
+                {
+                    cmd.Parameters.AddWithValue("@catId", catId);
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                        db.CloseConnection();
+                        return dt;
+                    }
+               
+                }
+            }
+            catch (Exception ex)
+            {
+                db.CloseConnection();
+                throw new Exception("Lỗi khi tải danh sách video theo Category: " + ex.Message);
+            }
+        }
+
+        // Nhóm lấy danh sách video cho theo Tag
+        public DataTable GetVideosByTag(int tagId)
+        {
+            string query = @"SELECT v.vid_filepath, v.vid_title, v.last_opened FROM Videos as v
+                        join Videotags as vt on vt.vid_id = v.vid_id
+                        where vt.tag_id = @tagId
+                        ORDER BY last_opened DESC;";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, db.con))
+                {
+                    cmd.Parameters.AddWithValue("@tagId", tagId);
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                        db.CloseConnection();
+                        return dt;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                db.CloseConnection();
+                throw new Exception("Lỗi khi tải danh sách video theo Tag: " + ex.Message);
+            }
+        }
+
         // Hàm mới: Lấy danh sách video cho DataGridView
         public DataTable GetVideosForDataGrid()
         {
@@ -133,6 +192,8 @@ namespace VideoPlayer
             }
         }
 
+
+
         // Lấy danh sách Tags
         public DataTable GetAllTags()
         {
@@ -154,6 +215,9 @@ namespace VideoPlayer
                 throw new Exception("Lỗi khi tải danh sách tag từ database: " + ex.Message);
             }
         }
+
+
+
 
         // Nhóm các tính năng Insert (hàm hiện tại của bạn, giữ nguyên)
         public void InsertVideoToDatabase(string filePath)

@@ -220,7 +220,7 @@ namespace VideoPlayer
 
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
-            var inputForm = new InputForm("Enter new category name:", "Add Category", "New Category");
+            var inputForm = new InputForm("Enter new category name:", "Add Category", "New Category", isVideoButton: false);
             if (inputForm.ShowDialog() == DialogResult.OK)
             {
                 string newCategoryName = inputForm.InputValue;
@@ -265,7 +265,7 @@ namespace VideoPlayer
             {
                 int catId = Convert.ToInt32(dgvCategories.SelectedRows[0].Cells["cat_id"].Value);
                 string currentName = dgvCategories.SelectedRows[0].Cells["cat_name"].Value.ToString();
-                var inputForm = new InputForm("Enter updated category name:", "Update Category", currentName);
+                var inputForm = new InputForm("Enter updated category name:", "Update Category", currentName, isVideoButton: false);
                 if (inputForm.ShowDialog() == DialogResult.OK)
                 {
                     string updatedName = inputForm.InputValue;
@@ -290,7 +290,7 @@ namespace VideoPlayer
 
         private void btnAddTag_Click(object sender, EventArgs e)
         {
-            var inputForm = new InputForm("Enter new tag name:", "Add Tag", "New Tag");
+            var inputForm = new InputForm("Enter new tag name:", "Add Tag", "New Tag", isVideoButton: false);
             if (inputForm.ShowDialog() == DialogResult.OK)
             {
                 string newTagName = inputForm.InputValue;
@@ -335,7 +335,7 @@ namespace VideoPlayer
             {
                 int tagId = Convert.ToInt32(dgvTags.SelectedRows[0].Cells["tag_id"].Value);
                 string currentName = dgvTags.SelectedRows[0].Cells["tag_name"].Value.ToString();
-                var inputForm = new InputForm("Enter updated tag name:", "Update Tag", currentName);
+                var inputForm = new InputForm("Enter updated tag name:", "Update Tag", currentName , isVideoButton: false);
                 if (inputForm.ShowDialog() == DialogResult.OK)
                 {
                     string updatedName = inputForm.InputValue;
@@ -368,7 +368,7 @@ namespace VideoPlayer
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
-                var titleForm = new InputForm("Enter video title:", "Add Video Title", Path.GetFileNameWithoutExtension(filePath), dtCategories);
+                var titleForm = new InputForm("Enter video title:", "Add Video Title", Path.GetFileNameWithoutExtension(filePath), isVideoButton:true,  dtCategories);
                 if (titleForm.ShowDialog() == DialogResult.OK)
                 {
                     string title = titleForm.InputValue;

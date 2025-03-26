@@ -286,7 +286,7 @@
             this.tabCategory.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.tabCategory.Name = "tabCategory";
             this.tabCategory.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.tabCategory.Size = new System.Drawing.Size(293, 485);
+            this.tabCategory.Size = new System.Drawing.Size(241, 361);
             this.tabCategory.TabIndex = 0;
             this.tabCategory.Text = "Category";
             this.tabCategory.UseVisualStyleBackColor = true;
@@ -313,14 +313,14 @@
             this.tblCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
             this.tblCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
             this.tblCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tblCategory.Size = new System.Drawing.Size(289, 483);
+            this.tblCategory.Size = new System.Drawing.Size(237, 359);
             this.tblCategory.TabIndex = 0;
             // 
             // lblCategoryPlaylist
             // 
             this.lblCategoryPlaylist.AutoSize = true;
             this.lblCategoryPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoryPlaylist.Location = new System.Drawing.Point(81, 4);
+            this.lblCategoryPlaylist.Location = new System.Drawing.Point(29, 4);
             this.lblCategoryPlaylist.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblCategoryPlaylist.Name = "lblCategoryPlaylist";
             this.lblCategoryPlaylist.Size = new System.Drawing.Size(204, 52);
@@ -336,7 +336,7 @@
             this.lstVideosWithCategory.Location = new System.Drawing.Point(2, 61);
             this.lstVideosWithCategory.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.lstVideosWithCategory.Name = "lstVideosWithCategory";
-            this.lstVideosWithCategory.Size = new System.Drawing.Size(285, 351);
+            this.lstVideosWithCategory.Size = new System.Drawing.Size(233, 227);
             this.lstVideosWithCategory.TabIndex = 1;
             // 
             // lblChangeCategory
@@ -344,10 +344,10 @@
             this.lblChangeCategory.AutoSize = true;
             this.lblChangeCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblChangeCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangeCategory.Location = new System.Drawing.Point(4, 417);
+            this.lblChangeCategory.Location = new System.Drawing.Point(4, 293);
             this.lblChangeCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblChangeCategory.Name = "lblChangeCategory";
-            this.lblChangeCategory.Size = new System.Drawing.Size(281, 26);
+            this.lblChangeCategory.Size = new System.Drawing.Size(229, 26);
             this.lblChangeCategory.TabIndex = 2;
             this.lblChangeCategory.Text = "Change Category";
             // 
@@ -355,10 +355,10 @@
             // 
             this.cboCategories.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboCategories.FormattingEnabled = true;
-            this.cboCategories.Location = new System.Drawing.Point(4, 451);
+            this.cboCategories.Location = new System.Drawing.Point(4, 327);
             this.cboCategories.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboCategories.Name = "cboCategories";
-            this.cboCategories.Size = new System.Drawing.Size(281, 28);
+            this.cboCategories.Size = new System.Drawing.Size(229, 28);
             this.cboCategories.TabIndex = 3;
             // 
             // tabTags
