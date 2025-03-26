@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="VideoPlayer.exe" version="1.0.0.1" publicKeyToken="e6448df4f0b0d5e8" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="VideoPlayer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="VideoPlayer.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AxInterop.WMPLib.dll" size="53760">
+      <assemblyIdentity name="AxInterop.WMPLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>q2/ItPmiYstx7rfPXvvIAFVKJ2orM4FCWzO5WcWE62M=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.WMPLib.dll" size="330752">
+      <assemblyIdentity name="Interop.WMPLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>rKYRDefZODEXAtn9y1ThSh1cqSFHOBU8VXzNttyLqyg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="VideoPlayer.exe" size="218032">
+      <assemblyIdentity name="VideoPlayer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>1/R+5KwhMBlZSRMrfekXsrz0o/r3G7InDOU27ZsAblM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="VideoPlayer.exe.config" size="184">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>FihlZtVNgcNyH37Pf0Jtll3jZOm+L55ijXNjtoS2/mo=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=TAIPHAM\AORUS" issuerKeyHash="b14237323abfd1b3e65fac4e891b05fadd43eccf" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>9Not5hNBbx+wrys/erL3jBj/wlmkHV8kv4Y7jxxk3+E=</DigestValue></Reference></SignedInfo><SignatureValue>xyFQibvxX23DZSp+VHfXje3USHEKz2B768UBhrg7wmypZ2z/wLaonWUISzmFv2nPchDdLETTTyMcO/XcJljxfIxcD6FovQKNN1/WzGEtsznNYQqJNNCoxyHk9fy12/0N2lRjEEJwFs8jXbgm9yQE1wCU/CEhVDjdrs4LaEP0fz4=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>7NK1Fgd3XcYHyJ4U3phF5H9f9yqR0whNgAKl6386+DqM69oCUFfAoqdTYw0DoF+REHmynkh4D7jOUaDSnlPboCDxqPfkglDlbyd0Gx9yH+/A9VWtDcdU/4U/zAf1TzbBpYpxbA02CN7Uft/r3LMQsI+YLfcfcmWrguxSQG3hrTU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="e1df641c8f3b86bf245f1da459c2ff188cf7b27a3f2bafb01f6f4113e62ddaf4" Description="" Url=""><as:assemblyIdentity name="VideoPlayer.exe" version="1.0.0.1" publicKeyToken="e6448df4f0b0d5e8" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=TAIPHAM\AORUS</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>7kKon2syzoeG+87HhxA9ZoeXArnV2uIjq2ei78tzxwU=</DigestValue></Reference></SignedInfo><SignatureValue>XYZTh7ksQGRDc5OgLY1zg1IRsebr7oBrqBLrpQzdixPZVAjMIKH5SjiXaIkcctkTHTzvIFytly79XhuG8PvG6zKpIX4Pin34pjtXn8RcIPLeGZkIXXfhwCm60dsWD0EQboCVMVfnyk0ljFFiy9VF59H5OSG/L+m/u/KxJhDatRw=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>7NK1Fgd3XcYHyJ4U3phF5H9f9yqR0whNgAKl6386+DqM69oCUFfAoqdTYw0DoF+REHmynkh4D7jOUaDSnlPboCDxqPfkglDlbyd0Gx9yH+/A9VWtDcdU/4U/zAf1TzbBpYpxbA02CN7Uft/r3LMQsI+YLfcfcmWrguxSQG3hrTU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBzTCCATagAwIBAgIQNw99/VN0g55GYV2QYaB7wDANBgkqhkiG9w0BAQsFADAlMSMwIQYDVQQDHhoAVABBAEkAUABIAEEATQBcAEEATwBSAFUAUzAeFw0yNTAzMjYyMDMxMjhaFw0yNjAzMjcwMjMxMjhaMCUxIzAhBgNVBAMeGgBUAEEASQBQAEgAQQBNAFwAQQBPAFIAVQBTMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDs0rUWB3ddxgfInhTemEXkf1/3KpHTCE2AAqXrfzr4Oozr2gJQV8Cip1NjDQOgX5EQebKeSHgPuM5RoNKeU9ugIPGo9+SCUOVvJ3QbH3If78D1Va0Nx1T/hT/MB/VPNsGlinFsDTYI3tR+3+vcsxCwj5gt9x9yZauC7FJAbeGtNQIDAQABMA0GCSqGSIb3DQEBCwUAA4GBABBLjHxZls2A/zJUrzUavUqAwv5nzquO87LSP65G6+344B5MxeQv800XX7HpuosY5bdAnSRNJ/CFqDlpFToGVynpVyhP+79ir9P/0xLwSjkWE3DvKFDSouf80DtUNMxb92Znesd9ZHvuNRwryhGUMb+Qa7Pa7P3EL03MX5h97XnG</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

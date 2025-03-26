@@ -15,6 +15,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageForm));
             this.ManageTabControl = new System.Windows.Forms.TabControl();
             this.tabCategories = new System.Windows.Forms.TabPage();
             this.dgvCategories = new System.Windows.Forms.DataGridView();
@@ -45,8 +46,9 @@
             this.ManageTabControl.Controls.Add(this.tabCategories);
             this.ManageTabControl.Controls.Add(this.tabTags);
             this.ManageTabControl.Controls.Add(this.tabVideos);
+            this.ManageTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ManageTabControl.Location = new System.Drawing.Point(16, 15);
-            this.ManageTabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ManageTabControl.Margin = new System.Windows.Forms.Padding(4);
             this.ManageTabControl.Name = "ManageTabControl";
             this.ManageTabControl.SelectedIndex = 0;
             this.ManageTabControl.Size = new System.Drawing.Size(1035, 524);
@@ -58,21 +60,22 @@
             this.tabCategories.Controls.Add(this.btnAddCategory);
             this.tabCategories.Controls.Add(this.btnUpdateCategory);
             this.tabCategories.Controls.Add(this.btnDeleteCategory);
-            this.tabCategories.Location = new System.Drawing.Point(4, 25);
-            this.tabCategories.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabCategories.Location = new System.Drawing.Point(4, 34);
+            this.tabCategories.Margin = new System.Windows.Forms.Padding(4);
             this.tabCategories.Name = "tabCategories";
-            this.tabCategories.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabCategories.Size = new System.Drawing.Size(1027, 495);
+            this.tabCategories.Padding = new System.Windows.Forms.Padding(4);
+            this.tabCategories.Size = new System.Drawing.Size(1027, 486);
             this.tabCategories.TabIndex = 0;
             this.tabCategories.Text = "Categories";
             this.tabCategories.UseVisualStyleBackColor = true;
             // 
             // dgvCategories
             // 
+            this.dgvCategories.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvCategories.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategories.Location = new System.Drawing.Point(8, 7);
-            this.dgvCategories.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvCategories.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCategories.Name = "dgvCategories";
             this.dgvCategories.RowHeadersWidth = 51;
             this.dgvCategories.Size = new System.Drawing.Size(1008, 418);
@@ -81,9 +84,9 @@
             // btnAddCategory
             // 
             this.btnAddCategory.Location = new System.Drawing.Point(8, 433);
-            this.btnAddCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(100, 28);
+            this.btnAddCategory.Size = new System.Drawing.Size(122, 45);
             this.btnAddCategory.TabIndex = 1;
             this.btnAddCategory.Text = "Add";
             this.btnAddCategory.UseVisualStyleBackColor = true;
@@ -91,10 +94,10 @@
             // 
             // btnUpdateCategory
             // 
-            this.btnUpdateCategory.Location = new System.Drawing.Point(116, 433);
-            this.btnUpdateCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateCategory.Location = new System.Drawing.Point(138, 433);
+            this.btnUpdateCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateCategory.Name = "btnUpdateCategory";
-            this.btnUpdateCategory.Size = new System.Drawing.Size(100, 28);
+            this.btnUpdateCategory.Size = new System.Drawing.Size(122, 45);
             this.btnUpdateCategory.TabIndex = 2;
             this.btnUpdateCategory.Text = "Update";
             this.btnUpdateCategory.UseVisualStyleBackColor = true;
@@ -102,10 +105,10 @@
             // 
             // btnDeleteCategory
             // 
-            this.btnDeleteCategory.Location = new System.Drawing.Point(224, 433);
-            this.btnDeleteCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteCategory.Location = new System.Drawing.Point(268, 433);
+            this.btnDeleteCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteCategory.Name = "btnDeleteCategory";
-            this.btnDeleteCategory.Size = new System.Drawing.Size(100, 28);
+            this.btnDeleteCategory.Size = new System.Drawing.Size(122, 45);
             this.btnDeleteCategory.TabIndex = 3;
             this.btnDeleteCategory.Text = "Delete";
             this.btnDeleteCategory.UseVisualStyleBackColor = true;
@@ -117,21 +120,22 @@
             this.tabTags.Controls.Add(this.btnAddTag);
             this.tabTags.Controls.Add(this.btnUpdateTag);
             this.tabTags.Controls.Add(this.btnDeleteTag);
-            this.tabTags.Location = new System.Drawing.Point(4, 25);
-            this.tabTags.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabTags.Location = new System.Drawing.Point(4, 34);
+            this.tabTags.Margin = new System.Windows.Forms.Padding(4);
             this.tabTags.Name = "tabTags";
-            this.tabTags.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabTags.Size = new System.Drawing.Size(1027, 495);
+            this.tabTags.Padding = new System.Windows.Forms.Padding(4);
+            this.tabTags.Size = new System.Drawing.Size(1027, 486);
             this.tabTags.TabIndex = 1;
             this.tabTags.Text = "Tags";
             this.tabTags.UseVisualStyleBackColor = true;
             // 
             // dgvTags
             // 
+            this.dgvTags.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvTags.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvTags.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTags.Location = new System.Drawing.Point(8, 7);
-            this.dgvTags.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvTags.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTags.Name = "dgvTags";
             this.dgvTags.RowHeadersWidth = 51;
             this.dgvTags.Size = new System.Drawing.Size(1008, 418);
@@ -140,9 +144,9 @@
             // btnAddTag
             // 
             this.btnAddTag.Location = new System.Drawing.Point(8, 433);
-            this.btnAddTag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddTag.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddTag.Name = "btnAddTag";
-            this.btnAddTag.Size = new System.Drawing.Size(100, 28);
+            this.btnAddTag.Size = new System.Drawing.Size(122, 45);
             this.btnAddTag.TabIndex = 1;
             this.btnAddTag.Text = "Add";
             this.btnAddTag.UseVisualStyleBackColor = true;
@@ -150,10 +154,10 @@
             // 
             // btnUpdateTag
             // 
-            this.btnUpdateTag.Location = new System.Drawing.Point(116, 433);
-            this.btnUpdateTag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateTag.Location = new System.Drawing.Point(138, 433);
+            this.btnUpdateTag.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateTag.Name = "btnUpdateTag";
-            this.btnUpdateTag.Size = new System.Drawing.Size(100, 28);
+            this.btnUpdateTag.Size = new System.Drawing.Size(122, 45);
             this.btnUpdateTag.TabIndex = 2;
             this.btnUpdateTag.Text = "Update";
             this.btnUpdateTag.UseVisualStyleBackColor = true;
@@ -161,10 +165,10 @@
             // 
             // btnDeleteTag
             // 
-            this.btnDeleteTag.Location = new System.Drawing.Point(224, 433);
-            this.btnDeleteTag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteTag.Location = new System.Drawing.Point(268, 433);
+            this.btnDeleteTag.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteTag.Name = "btnDeleteTag";
-            this.btnDeleteTag.Size = new System.Drawing.Size(100, 28);
+            this.btnDeleteTag.Size = new System.Drawing.Size(122, 45);
             this.btnDeleteTag.TabIndex = 3;
             this.btnDeleteTag.Text = "Delete";
             this.btnDeleteTag.UseVisualStyleBackColor = true;
@@ -176,21 +180,22 @@
             this.tabVideos.Controls.Add(this.btnAddVideo);
             this.tabVideos.Controls.Add(this.btnUpdateVideo);
             this.tabVideos.Controls.Add(this.btnDeleteVideo);
-            this.tabVideos.Location = new System.Drawing.Point(4, 25);
-            this.tabVideos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabVideos.Location = new System.Drawing.Point(4, 34);
+            this.tabVideos.Margin = new System.Windows.Forms.Padding(4);
             this.tabVideos.Name = "tabVideos";
-            this.tabVideos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabVideos.Size = new System.Drawing.Size(1027, 495);
+            this.tabVideos.Padding = new System.Windows.Forms.Padding(4);
+            this.tabVideos.Size = new System.Drawing.Size(1027, 486);
             this.tabVideos.TabIndex = 2;
             this.tabVideos.Text = "Videos";
             this.tabVideos.UseVisualStyleBackColor = true;
             // 
             // dgvVideos
             // 
+            this.dgvVideos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvVideos.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvVideos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVideos.Location = new System.Drawing.Point(8, 7);
-            this.dgvVideos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvVideos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvVideos.Name = "dgvVideos";
             this.dgvVideos.RowHeadersWidth = 51;
             this.dgvVideos.Size = new System.Drawing.Size(1008, 418);
@@ -199,9 +204,9 @@
             // btnAddVideo
             // 
             this.btnAddVideo.Location = new System.Drawing.Point(8, 433);
-            this.btnAddVideo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddVideo.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddVideo.Name = "btnAddVideo";
-            this.btnAddVideo.Size = new System.Drawing.Size(100, 28);
+            this.btnAddVideo.Size = new System.Drawing.Size(122, 45);
             this.btnAddVideo.TabIndex = 1;
             this.btnAddVideo.Text = "Add";
             this.btnAddVideo.UseVisualStyleBackColor = true;
@@ -209,10 +214,10 @@
             // 
             // btnUpdateVideo
             // 
-            this.btnUpdateVideo.Location = new System.Drawing.Point(116, 433);
-            this.btnUpdateVideo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateVideo.Location = new System.Drawing.Point(138, 433);
+            this.btnUpdateVideo.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateVideo.Name = "btnUpdateVideo";
-            this.btnUpdateVideo.Size = new System.Drawing.Size(100, 28);
+            this.btnUpdateVideo.Size = new System.Drawing.Size(122, 45);
             this.btnUpdateVideo.TabIndex = 2;
             this.btnUpdateVideo.Text = "Update";
             this.btnUpdateVideo.UseVisualStyleBackColor = true;
@@ -220,10 +225,10 @@
             // 
             // btnDeleteVideo
             // 
-            this.btnDeleteVideo.Location = new System.Drawing.Point(224, 433);
-            this.btnDeleteVideo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteVideo.Location = new System.Drawing.Point(268, 433);
+            this.btnDeleteVideo.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteVideo.Name = "btnDeleteVideo";
-            this.btnDeleteVideo.Size = new System.Drawing.Size(100, 28);
+            this.btnDeleteVideo.Size = new System.Drawing.Size(122, 45);
             this.btnDeleteVideo.TabIndex = 3;
             this.btnDeleteVideo.Text = "Delete";
             this.btnDeleteVideo.UseVisualStyleBackColor = true;
@@ -235,7 +240,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.ManageTabControl);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ManageForm";
             this.Text = "Manage Categories, Tags, and Videos";
             this.ManageTabControl.ResumeLayout(false);
