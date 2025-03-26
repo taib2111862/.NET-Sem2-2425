@@ -86,7 +86,7 @@ namespace VideoPlayer
                     MessageBox.Show("Video đã được thêm vào database!");
                 }
                 PlayFile(lastURl);
-                
+                LoadVideosFromDatabase();
             }
         }
         private void LoadVideosFromDatabase()
@@ -195,6 +195,5 @@ namespace VideoPlayer
             }
             LoadVideosFromDatabase(); 
         }
-
     }
 }
