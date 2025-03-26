@@ -336,6 +336,7 @@
             this.lstVideosWithCategory.Location = new System.Drawing.Point(2, 61);
             this.lstVideosWithCategory.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.lstVideosWithCategory.Name = "lstVideosWithCategory";
+            this.lstVideosWithCategory.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lstVideosWithCategory.Size = new System.Drawing.Size(233, 227);
             this.lstVideosWithCategory.TabIndex = 1;
             // 

@@ -18,9 +18,11 @@ namespace VideoPlayer
         // Nhóm các tính năng Get (hàm hiện tại của bạn, giữ nguyên)
         public DataTable GetAllVideos()
         {
-            string query = "SELECT vid_filepath, vid_title, last_opened FROM Videos ORDER BY last_opened DESC";
+            string query = @"SELECT v.vid_filepath, v.vid_title, v.last_opened FROM Videos as v ORDER BY last_opened DESC";
+
+
             try
-            {
+            { 
                 db.OpenConnection();
                 using (SqlDataAdapter adapter = new SqlDataAdapter(query, db.con))
                 {
@@ -65,6 +67,36 @@ namespace VideoPlayer
                 throw new Exception("Lỗi khi tải danh sách video theo Category: " + ex.Message);
             }
         }
+
+        //public DataTable GetVideosByTag(int tagId)
+        //{
+        //    string query = @"
+        //SELECT v.vid_id, v.vid_filepath, v.vid_title
+        //FROM Videos v
+        //INNER JOIN VideoTags vt ON vt.vid_id = v.vid_id
+        //WHERE vt.tag_id = @tagId";
+
+        //    try
+        //    {
+        //        db.OpenConnection();
+        //        using (SqlCommand cmd = new SqlCommand(query, db.con))
+        //        {
+        //            cmd.Parameters.AddWithValue("@tagId", tagId);
+        //            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+        //            DataTable videos = new DataTable();
+        //            adapter.Fill(videos);
+        //            return videos;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("Error retrieving videos by tag: " + ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        db.CloseConnection();
+        //    }
+        //}
 
         // Nhóm lấy danh sách video cho theo Tag
         public DataTable GetVideosByTag(int tagId)
@@ -192,7 +224,33 @@ namespace VideoPlayer
             }
         }
 
+        public DataTable GetCategoryByVideo(string filepath)
+        {
+            string query = @"SELECT c.cat_id, c.cat_name FROM Categories AS c 
+                            INNER JOIN Videos AS v ON v.cat_id = c.cat_id 
+                            WHERE v.vid_filepath = @filepath";
+            try
+            {
+                db.OpenConnection();
+                using (SqlCommand cmd = new SqlCommand(query, db.con))
+                {
+                    cmd.Parameters.AddWithValue("@filepath", filepath);
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                        db.CloseConnection();
+                        return dt;
+                    }
 
+                }
+            }
+            catch (Exception ex)
+            {
+                db.CloseConnection();
+                throw new Exception("Lỗi khi tải danh sách category từ database: " + ex.Message);
+            }
+        }
 
         // Lấy danh sách Tags
         public DataTable GetAllTags()
@@ -215,6 +273,36 @@ namespace VideoPlayer
                 throw new Exception("Lỗi khi tải danh sách tag từ database: " + ex.Message);
             }
         }
+
+        public DataTable GetTagsByVideo(string filepath)
+        {
+            string query = @"select t.tag_id, t.tag_name
+                            from Videos as v inner join VideoTags as vt on vt.vid_id = v.vid_id
+				            inner join Tags as t on t.tag_id = vt.tag_id
+                            where v.vid_filepath = @filepath";
+            try
+            {
+                db.OpenConnection();
+                using (SqlCommand cmd = new SqlCommand(query, db.con))
+                {
+                    cmd.Parameters.AddWithValue("@filepath", filepath);
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                        db.CloseConnection();
+                        return dt;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                db.CloseConnection();
+                throw new Exception("Lỗi khi tải danh sách Tags từ database: " + ex.Message);
+            }
+        }
+
 
 
 
