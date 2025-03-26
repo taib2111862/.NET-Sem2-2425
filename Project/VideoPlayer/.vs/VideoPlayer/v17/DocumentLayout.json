@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\manageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|c:\\users\\thait\\labs\\.net\\project\\project\\videoplayer\\manageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|solutionrelative:manageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,48 +11,36 @@
       "RelativeMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|solutionrelative:videodatabasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|c:\\users\\thait\\labs\\.net\\project\\project\\videoplayer\\manageform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\manageform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|solutionrelative:manageform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|c:\\users\\thait\\labs\\.net\\project\\project\\videoplayer\\inputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\inputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|solutionrelative:inputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\inputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|solutionrelative:inputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|c:\\users\\thait\\labs\\.net\\project\\project\\videoplayer\\updatevideoform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\updatevideoform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|solutionrelative:updatevideoform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|c:\\users\\thait\\labs\\.net\\project\\project\\videoplayer\\updatevideoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\updatevideoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|solutionrelative:updatevideoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|c:\\users\\thait\\labs\\.net\\project\\project\\videoplayer\\updatevideoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\updatevideoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|solutionrelative:updatevideoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\clsdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|solutionrelative:clsdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|c:\\users\\thait\\labs\\.net\\project\\project\\videoplayer\\selecttagsform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\selecttagsform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|solutionrelative:selecttagsform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|c:\\users\\thait\\labs\\.net\\project\\project\\videoplayer\\selecttagsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\selecttagsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|solutionrelative:selecttagsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|c:\\users\\thait\\labs\\.net\\project\\project\\videoplayer\\selecttagsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|solutionrelative:selecttagsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|c:\\users\\thait\\labs\\.net\\project\\project\\videoplayer\\inputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|solutionrelative:inputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4ABEAE84-B8F7-49C1-9DF8-60B87B6D23BF}|VideoPlayer.csproj|C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -66,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 950,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
@@ -76,7 +64,7 @@
               "RelativeDocumentMoniker": "ManageForm.Designer.cs",
               "ToolTip": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\ManageForm.Designer.cs",
               "RelativeToolTip": "ManageForm.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T08:54:08.063Z",
               "IsPinned": true,
@@ -96,7 +84,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "ManageForm.cs",
+              "DocumentMoniker": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\ManageForm.cs",
+              "RelativeDocumentMoniker": "ManageForm.cs",
+              "ToolTip": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\ManageForm.cs",
+              "RelativeToolTip": "ManageForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T08:20:01.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "UpdateVideoForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\UpdateVideoForm.Designer.cs",
               "RelativeDocumentMoniker": "UpdateVideoForm.Designer.cs",
@@ -104,12 +105,11 @@
               "RelativeToolTip": "UpdateVideoForm.Designer.cs",
               "ViewState": "AgIAAEIAAAAAAAAAAAAcwIIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T18:23:57.201Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T18:23:57.201Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "UpdateVideoForm.cs",
               "DocumentMoniker": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\UpdateVideoForm.cs",
               "RelativeDocumentMoniker": "UpdateVideoForm.cs",
@@ -117,24 +117,22 @@
               "RelativeToolTip": "UpdateVideoForm.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAcwEsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T18:23:50.918Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T18:23:50.918Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "UpdateVideoForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\UpdateVideoForm.cs",
               "RelativeDocumentMoniker": "UpdateVideoForm.cs",
               "ToolTip": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\UpdateVideoForm.cs [Design]",
               "RelativeToolTip": "UpdateVideoForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T18:23:41.052Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-03-25T18:23:41.052Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "SelectTagsForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\SelectTagsForm.Designer.cs",
               "RelativeDocumentMoniker": "SelectTagsForm.Designer.cs",
@@ -142,12 +140,11 @@
               "RelativeToolTip": "SelectTagsForm.Designer.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAAAcwEcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T17:50:27.993Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T17:50:27.993Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "SelectTagsForm.cs",
               "DocumentMoniker": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\SelectTagsForm.cs",
               "RelativeDocumentMoniker": "SelectTagsForm.cs",
@@ -155,37 +152,24 @@
               "RelativeToolTip": "SelectTagsForm.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAcwDYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T17:50:18.596Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T17:50:18.596Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "SelectTagsForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\SelectTagsForm.cs",
-              "RelativeDocumentMoniker": "SelectTagsForm.cs",
-              "ToolTip": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\SelectTagsForm.cs [Design]",
-              "RelativeToolTip": "SelectTagsForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T17:50:08.059Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 3,
               "Title": "InputForm.cs",
               "DocumentMoniker": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\InputForm.cs",
               "RelativeDocumentMoniker": "InputForm.cs",
               "ToolTip": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\InputForm.cs",
               "RelativeToolTip": "InputForm.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAcwBQAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAABEAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T17:48:07.34Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "InputForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\InputForm.cs",
               "RelativeDocumentMoniker": "InputForm.cs",
@@ -197,59 +181,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ManageForm.cs",
-              "DocumentMoniker": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\ManageForm.cs",
-              "RelativeDocumentMoniker": "ManageForm.cs",
-              "ToolTip": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\ManageForm.cs",
-              "RelativeToolTip": "ManageForm.cs",
-              "ViewState": "AgIAAPQAAAAAAAAAAAAAACoBAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T08:20:01.817Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "clsDatabase.cs",
-              "DocumentMoniker": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\clsDatabase.cs",
-              "RelativeDocumentMoniker": "clsDatabase.cs",
-              "ToolTip": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\clsDatabase.cs",
-              "RelativeToolTip": "clsDatabase.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAwAsAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T08:07:49.937Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "VideoDatabaseManager.cs",
               "DocumentMoniker": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\VideoDatabaseManager.cs",
               "RelativeDocumentMoniker": "VideoDatabaseManager.cs",
               "ToolTip": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\VideoDatabaseManager.cs",
               "RelativeToolTip": "VideoDatabaseManager.cs",
-              "ViewState": "AgIAAJAAAAAAAAAAAAAUwMkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAANgAAAAAAAAAAAAAwN0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-13T08:07:27.075Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAKEAAAAAAAAAAAAAALcAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T05:37:11.881Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 10,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\thait\\LABS\\.Net\\Project\\Project\\VideoPlayer\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",

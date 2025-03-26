@@ -166,24 +166,34 @@ namespace VideoPlayer
         {
             // Mở ManageForm và chọn tab Categories (index 0)
             VideoPlayer.Ctlcontrols.stop();
-            ManageForm manageForm = new ManageForm(0);
-            manageForm.Show();
+            //ShowDialog() mở ManageForm dưới dạng một cửa sổ modal, nghĩa là người dùng phải đóng ManageForm trước khi có thể tương tác lại với frmMediaPlayer.
+            using (ManageForm manageForm = new ManageForm(0))
+            {
+                manageForm.ShowDialog();
+            }
+            LoadVideosFromDatabase();
         }
 
         private void tagsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Mở ManageForm và chọn tab Tags (index 1)
             VideoPlayer.Ctlcontrols.stop();
-            ManageForm manageForm = new ManageForm(1);
-            manageForm.Show();
+            using (ManageForm manageForm = new ManageForm(1))
+            {
+                manageForm.ShowDialog();
+            }
+            LoadVideosFromDatabase();
         }
 
         private void videosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Mở ManageForm và chọn tab Videos (index 2)
             VideoPlayer.Ctlcontrols.stop();
-            ManageForm manageForm = new ManageForm(2);
-            manageForm.Show();
+            using (ManageForm manageForm = new ManageForm(2))
+            {
+                manageForm.ShowDialog();
+            }
+            LoadVideosFromDatabase(); 
         }
 
     }

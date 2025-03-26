@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace VideoPlayer
@@ -17,17 +13,20 @@ namespace VideoPlayer
         private DataTable dtCategories;
         private DataTable dtTags;
         private DataTable dtVideos;
+        public bool HasChanges { get; private set; }
 
         public ManageForm(int selectedTabIndex = 0)
         {
             InitializeComponent();
             dbManager = new VideoDatabaseManager();
+            HasChanges = false;
 
-            // Load data from database
-            LoadCategories();
-            LoadTags();
+            // Thêm cột STT cho các DataGridView
+            AddSttColumn(dgvCategories);
+            AddSttColumn(dgvTags);
+            AddSttColumn(dgvVideos);
 
-            // Add TagsDisplay column only once
+            // Thêm cột TagsDisplay cho dgvVideos
             if (dgvVideos.Columns["TagsDisplay"] == null)
             {
                 DataGridViewTextBoxColumn tagsDisplayColumn = new DataGridViewTextBoxColumn
@@ -39,7 +38,7 @@ namespace VideoPlayer
                 dgvVideos.Columns.Add(tagsDisplayColumn);
             }
 
-            // Handle CellFormatting to display tag names
+            // Sự kiện CellFormatting để hiển thị danh sách tag
             dgvVideos.CellFormatting += (sender, e) =>
             {
                 if (e.ColumnIndex == dgvVideos.Columns["TagsDisplay"].Index && e.RowIndex >= 0)
@@ -67,53 +66,158 @@ namespace VideoPlayer
                         e.Value = "";
                     }
                 }
+                // Hiển thị STT
+                if (e.ColumnIndex == dgvVideos.Columns["STT"].Index && e.RowIndex >= 0)
+                {
+                    e.Value = (e.RowIndex + 1).ToString();
+                }
             };
 
-            // Load videos after setting up columns
-            LoadVideos();
+            // Sự kiện CellFormatting cho dgvCategories và dgvTags để hiển thị STT
+            dgvCategories.CellFormatting += (sender, e) =>
+            {
+                if (e.ColumnIndex == dgvCategories.Columns["STT"].Index && e.RowIndex >= 0)
+                {
+                    e.Value = (e.RowIndex + 1).ToString();
+                }
+            };
 
-            // Select tab based on parameter
+            dgvTags.CellFormatting += (sender, e) =>
+            {
+                if (e.ColumnIndex == dgvTags.Columns["STT"].Index && e.RowIndex >= 0)
+                {
+                    e.Value = (e.RowIndex + 1).ToString();
+                }
+            };
+
+            LoadCategories();
+            LoadTags();
+            LoadVideos();
             ManageTabControl.SelectedIndex = selectedTabIndex;
+        }
+
+        // Phương thức để thêm cột STT vào DataGridView
+        private void AddSttColumn(DataGridView dgv)
+        {
+            if (dgv.Columns["STT"] == null)
+            {
+                DataGridViewTextBoxColumn sttColumn = new DataGridViewTextBoxColumn
+                {
+                    Name = "STT",
+                    HeaderText = "STT",
+                    ReadOnly = true,
+                    Width = 50
+                };
+                dgv.Columns.Add(sttColumn);
+            }
         }
 
         private void LoadCategories()
         {
             dtCategories = dbManager.GetAllCategories();
             dgvCategories.DataSource = dtCategories;
+
+            // Ẩn cột cat_id
+            if (dgvCategories.Columns["cat_id"] != null)
+            {
+                dgvCategories.Columns["cat_id"].Visible = false;
+            }
+
+            // Đặt cột STT làm cột đầu tiên
+            if (dgvCategories.Columns["STT"] != null)
+            {
+                dgvCategories.Columns["STT"].DisplayIndex = 0;
+            }
+
+            // Đổi tên cột cat_name thành "Category Name"
+            if (dgvCategories.Columns["cat_name"] != null)
+            {
+                dgvCategories.Columns["cat_name"].HeaderText = "Category Name";
+            }
         }
 
         private void LoadTags()
         {
             dtTags = dbManager.GetAllTags();
             dgvTags.DataSource = dtTags;
+
+            // Ẩn cột tag_id
+            if (dgvTags.Columns["tag_id"] != null)
+            {
+                dgvTags.Columns["tag_id"].Visible = false;
+            }
+
+            // Đặt cột STT làm cột đầu tiên
+            if (dgvTags.Columns["STT"] != null)
+            {
+                dgvTags.Columns["STT"].DisplayIndex = 0;
+            }
+
+            // Đổi tên cột tag_name thành "Tag Name"
+            if (dgvTags.Columns["tag_name"] != null)
+            {
+                dgvTags.Columns["tag_name"].HeaderText = "Tag Name";
+            }
         }
 
         private void LoadVideos()
         {
             dtVideos = dbManager.GetVideosForDataGrid();
-            // Remove the default TagIds column (if it exists)
+            dgvVideos.DataSource = dtVideos;
+
+            // Ẩn các cột không cần thiết
+            if (dgvVideos.Columns["vid_id"] != null)
+            {
+                dgvVideos.Columns["vid_id"].Visible = false;
+            }
             if (dgvVideos.Columns["TagIds"] != null)
             {
-                dgvVideos.Columns.Remove("TagIds");
+                dgvVideos.Columns["TagIds"].Visible = false;
             }
-
-            // Remove the cat_id column (we'll display CategoryName instead)
             if (dgvVideos.Columns["cat_id"] != null)
             {
-                dgvVideos.Columns.Remove("cat_id");
+                dgvVideos.Columns["cat_id"].Visible = false;
             }
 
-            // Rename CategoryName to Category
+            // Đặt cột STT làm cột đầu tiên
+            if (dgvVideos.Columns["STT"] != null)
+            {
+                dgvVideos.Columns["STT"].DisplayIndex = 0;
+            }
+
+            // Đổi tên cột và sắp xếp lại
+            if (dgvVideos.Columns["vid_title"] != null)
+            {
+                dgvVideos.Columns["vid_title"].HeaderText = "Title";
+                dgvVideos.Columns["vid_title"].DisplayIndex = 1;
+            }
+            if (dgvVideos.Columns["vid_filepath"] != null)
+            {
+                dgvVideos.Columns["vid_filepath"].HeaderText = "File Path";
+                dgvVideos.Columns["vid_filepath"].DisplayIndex = 2;
+            }
+            if (dgvVideos.Columns["vid_description"] != null)
+            {
+                dgvVideos.Columns["vid_description"].HeaderText = "Description";
+                dgvVideos.Columns["vid_description"].DisplayIndex = 3;
+            }
+            if (dgvVideos.Columns["vid_duration"] != null)
+            {
+                dgvVideos.Columns["vid_duration"].HeaderText = "Duration";
+                dgvVideos.Columns["vid_duration"].DisplayIndex = 4;
+            }
             if (dgvVideos.Columns["CategoryName"] != null)
             {
                 dgvVideos.Columns["CategoryName"].HeaderText = "Category";
+                dgvVideos.Columns["CategoryName"].DisplayIndex = 5;
             }
-
-            // Bind the DataTable to the DataGridView
-            dgvVideos.DataSource = dtVideos;
+            if (dgvVideos.Columns["TagsDisplay"] != null)
+            {
+                dgvVideos.Columns["TagsDisplay"].HeaderText = "Tags";
+                dgvVideos.Columns["TagsDisplay"].DisplayIndex = 6; // Đặt sau cột Category
+            }
         }
 
-        // Categories Tab - Add, Update, Delete
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
             var inputForm = new InputForm("Enter new category name:", "Add Category", "New Category");
@@ -128,7 +232,8 @@ namespace VideoPlayer
 
                 dbManager.InsertCategoryToDatabase(newCategoryName);
                 LoadCategories();
-                LoadVideos(); // Cần tải lại videos vì cat_id có thể bị thay đổi
+                LoadVideos();
+                HasChanges = true;
                 MessageBox.Show("Category added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -143,7 +248,8 @@ namespace VideoPlayer
                     int catId = Convert.ToInt32(dgvCategories.SelectedRows[0].Cells["cat_id"].Value);
                     dbManager.DeleteCategoryFromDatabase(catId);
                     LoadCategories();
-                    LoadVideos(); // Cần tải lại videos vì cat_id có thể bị thay đổi
+                    LoadVideos();
+                    HasChanges = true;
                     MessageBox.Show("Category deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -171,7 +277,8 @@ namespace VideoPlayer
 
                     dbManager.UpdateCategory(catId, updatedName);
                     LoadCategories();
-                    LoadVideos(); // Cần tải lại videos để cập nhật tên category
+                    LoadVideos();
+                    HasChanges = true;
                     MessageBox.Show("Category updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -181,7 +288,6 @@ namespace VideoPlayer
             }
         }
 
-        // Tags Tab - Add, Update, Delete
         private void btnAddTag_Click(object sender, EventArgs e)
         {
             var inputForm = new InputForm("Enter new tag name:", "Add Tag", "New Tag");
@@ -196,7 +302,8 @@ namespace VideoPlayer
 
                 dbManager.InsertTagToDatabase(newTagName);
                 LoadTags();
-                LoadVideos(); // Cần tải lại videos để cập nhật danh sách tags
+                LoadVideos();
+                HasChanges = true;
                 MessageBox.Show("Tag added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -211,7 +318,8 @@ namespace VideoPlayer
                     int tagId = Convert.ToInt32(dgvTags.SelectedRows[0].Cells["tag_id"].Value);
                     dbManager.DeleteTagFromDatabase(tagId);
                     LoadTags();
-                    LoadVideos(); // Cần tải lại videos vì tags có thể bị thay đổi
+                    LoadVideos();
+                    HasChanges = true;
                     MessageBox.Show("Tag deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -239,7 +347,8 @@ namespace VideoPlayer
 
                     dbManager.UpdateTag(tagId, updatedName);
                     LoadTags();
-                    LoadVideos(); // Cần tải lại videos để cập nhật tên tag
+                    LoadVideos();
+                    HasChanges = true;
                     MessageBox.Show("Tag updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -249,7 +358,6 @@ namespace VideoPlayer
             }
         }
 
-        // Videos Tab - Add, Update, Delete
         private void btnAddVideo_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -260,10 +368,11 @@ namespace VideoPlayer
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
-                var titleForm = new InputForm("Enter video title:", "Add Video Title", Path.GetFileNameWithoutExtension(filePath));
+                var titleForm = new InputForm("Enter video title:", "Add Video Title", Path.GetFileNameWithoutExtension(filePath), dtCategories);
                 if (titleForm.ShowDialog() == DialogResult.OK)
                 {
                     string title = titleForm.InputValue;
+                    string description = titleForm.Description;
                     if (string.IsNullOrWhiteSpace(title))
                     {
                         MessageBox.Show("Video title cannot be empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -275,9 +384,15 @@ namespace VideoPlayer
                         MessageBox.Show("Please add at least one category before adding a video!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    int catId = Convert.ToInt32(dtCategories.Rows[0]["cat_id"]);
-                    List<int> tagIds = new List<int>();
 
+                    int catId = titleForm.SelectedCatId;
+                    if (catId == -1)
+                    {
+                        MessageBox.Show("Please select a category for the video!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    List<int> tagIds = new List<int>();
                     var selectTagsForm = new SelectTagsForm(dtTags, tagIds);
                     if (selectTagsForm.ShowDialog() == DialogResult.OK)
                     {
@@ -286,8 +401,9 @@ namespace VideoPlayer
 
                     try
                     {
-                        dbManager.InsertVideoForDataGrid(filePath, title, catId, tagIds);
+                        dbManager.InsertVideoForDataGrid(filePath, title, catId, tagIds, description);
                         LoadVideos();
+                        HasChanges = true;
                         MessageBox.Show("Video added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -308,6 +424,7 @@ namespace VideoPlayer
                     string filePath = dgvVideos.SelectedRows[0].Cells["vid_filepath"].Value.ToString();
                     dbManager.DeleteVideoFromDatabase(filePath);
                     LoadVideos();
+                    HasChanges = true;
                     MessageBox.Show("Video deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -321,7 +438,6 @@ namespace VideoPlayer
         {
             if (dgvVideos.SelectedRows.Count > 0)
             {
-                // Lấy DataRow từ DataTable
                 DataRow row = (dgvVideos.SelectedRows[0].DataBoundItem as DataRowView)?.Row;
                 if (row == null)
                 {
@@ -337,12 +453,12 @@ namespace VideoPlayer
                     ? new List<int>()
                     : tagIds.Split(',').Select(id => int.Parse(id)).ToList();
 
-                // Hiển thị form cập nhật video
                 var updateForm = new UpdateVideoForm(currentTitle, currentCatId, currentTagIds, dtCategories, dtTags);
                 if (updateForm.ShowDialog() == DialogResult.OK)
                 {
                     dbManager.UpdateVideo(vidId, updateForm.UpdatedTitle, updateForm.UpdatedCatId, updateForm.UpdatedTagIds);
                     LoadVideos();
+                    HasChanges = true;
                     MessageBox.Show("Video updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -351,25 +467,5 @@ namespace VideoPlayer
                 MessageBox.Show("Please select a video to update!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    }
-
-    public class Category
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-
-    public class Tag
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-
-    public class Video
-    {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public int CategoryId { get; set; }
-        public List<int> TagIds { get; set; }
     }
 }

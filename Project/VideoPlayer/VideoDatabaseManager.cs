@@ -203,7 +203,7 @@ namespace VideoPlayer
 
 
         // Hàm mới: Thêm video cho DataGridView
-        public int InsertVideoForDataGrid(string filePath, string title, int catId, List<int> tagIds)
+        public int InsertVideoForDataGrid(string filePath, string title, int catId, List<int> tagIds, string vidDescription = "Chưa có mô tả")
         {
             // Kiểm tra xem vid_filepath đã tồn tại hay chưa
             string checkQuery = "SELECT COUNT(*) FROM Videos WHERE vid_filepath = @filepath";
@@ -219,14 +219,13 @@ namespace VideoPlayer
                 }
             }
 
-            string vidDescription = "Chưa có mô tả";
             TimeSpan vidDuration = GetVideoDuration(filePath);
             string formattedDuration = vidDuration.ToString(@"hh\:mm\:ss");
 
             string query = @"
-        INSERT INTO Videos (vid_title, vid_filepath, vid_description, vid_duration, cat_id)
-        VALUES (@title, @filepath, @description, @duration, @catId);
-        SELECT SCOPE_IDENTITY();"; // Trả về ID của video vừa thêm
+                INSERT INTO Videos (vid_title, vid_filepath, vid_description, vid_duration, cat_id)
+                VALUES (@title, @filepath, @description, @duration, @catId);
+                SELECT SCOPE_IDENTITY();"; // Trả về ID của video vừa thêm
 
             try
             {
@@ -235,7 +234,7 @@ namespace VideoPlayer
                 {
                     cmd.Parameters.AddWithValue("@title", title);
                     cmd.Parameters.AddWithValue("@filepath", filePath);
-                    cmd.Parameters.AddWithValue("@description", vidDescription);
+                    cmd.Parameters.AddWithValue("@description", vidDescription); // Sử dụng vid_description
                     cmd.Parameters.AddWithValue("@duration", formattedDuration);
                     cmd.Parameters.AddWithValue("@catId", catId);
 
