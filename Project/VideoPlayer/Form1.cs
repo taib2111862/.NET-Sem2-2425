@@ -36,8 +36,6 @@ namespace VideoPlayer
             tagsToolStripMenuItem.Click += new EventHandler(tagsToolStripMenuItem_Click);
             videosToolStripMenuItem.Click += new EventHandler(videosToolStripMenuItem_Click);
 
-
-
             // thiêt lập event cho tab control khi chuyển tab
             tabVideoInformation.SelectedIndexChanged += new EventHandler(tabVideoInformation_SelectedIndexChanged);
             lstVideosWithCategory.SelectedIndexChanged += new EventHandler(lstVideosWithCategory_SelectedIndexChanged);
@@ -48,8 +46,6 @@ namespace VideoPlayer
 
             // Hiển thị tooltip (title day du) khi di chuột qua các video trong Playlist
             CreateToolTrip();
-
-
 
             LoadVideosFromDatabase();
         }
@@ -95,6 +91,8 @@ namespace VideoPlayer
                 }
                 PlayFile(lastURl);
                 LoadVideosFromDatabase();
+                LoadVideosByCategoryFromDatabase();
+                LoadTagsByVideo();
             }
         }
         private void LoadVideosFromDatabase()
@@ -123,7 +121,7 @@ namespace VideoPlayer
                     currentFile = 0; // Đặt currentFile về 0 nếu danh sách không rỗng
                     PlayList.SelectedIndex = currentFile;
                     PlayFile(filteredFiles[currentFile]); // Phát video đầu tiên
-                    lblVideoTitle.Text = PlayList.Items[currentFile].ToString();
+                    lblVideoTitle.Text = "Now playing: " +PlayList.Items[currentFile].ToString();
                 }
                 else
                 {
@@ -162,7 +160,7 @@ namespace VideoPlayer
                 {
                     PlayList.SelectedIndex = currentFile;
                     PlayFile(filteredFiles[currentFile]); // Phát video đầu tiên
-                    lblVideoTitle.Text = PlayList.Items[currentFile].ToString();
+                    lblVideoTitle.Text = "Now playing: " + PlayList.Items[currentFile].ToString();
                 }
             }
             catch (Exception ex)
@@ -171,7 +169,7 @@ namespace VideoPlayer
             }
         }
 
-        private void LoadVideosByCatgoryFromDatabase()
+        private void LoadVideosByCategoryFromDatabase()
         {
             try
             {
@@ -229,7 +227,7 @@ namespace VideoPlayer
                     }
 
                     lstVideosWithCategory.SelectedIndex = categoryCurrentFile;
-                    lblVideoTitle.Text = lstVideosWithCategory.Items[categoryCurrentFile].ToString();
+                    lblVideoTitle.Text = "Now playing: " + lstVideosWithCategory.Items[categoryCurrentFile].ToString();
 
                     // Kiểm tra xem video hiện tại có đang phát hay không
                     string selectedFilePath = categoryFilteredFiles[categoryCurrentFile];
@@ -248,7 +246,6 @@ namespace VideoPlayer
                 MessageBox.Show($"Error loading videos by category: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         private void LoadTagsByVideo()
         {
@@ -292,7 +289,6 @@ namespace VideoPlayer
             }
         }
 
-
         private void PlayList_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (PlayList.SelectedIndex >= 0)
@@ -300,7 +296,7 @@ namespace VideoPlayer
                 currentFile = PlayList.SelectedIndex;
                 string selectedFilePath = filteredFiles[currentFile];
                 PlayFile(selectedFilePath);
-                lblVideoTitle.Text = PlayList.Items[currentFile].ToString();
+                lblVideoTitle.Text = "Now playing: " + PlayList.Items[currentFile].ToString();
             }
         }
         private void lstVideosWithCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -310,7 +306,7 @@ namespace VideoPlayer
                 categoryCurrentFile = lstVideosWithCategory.SelectedIndex;
                 string selectedFilePath = categoryFilteredFiles[categoryCurrentFile];
                 PlayFile(selectedFilePath);
-                lblVideoTitle.Text = lstVideosWithCategory.Items[categoryCurrentFile].ToString();
+                lblVideoTitle.Text = "Now playing: " + lstVideosWithCategory.Items[categoryCurrentFile].ToString();
 
                 // Đồng bộ currentFile với tab "Videos"
                 int newIndex = filteredFiles.IndexOf(selectedFilePath);
@@ -364,7 +360,7 @@ namespace VideoPlayer
 
                         // Cập nhật giao diện
                         lstVideosWithSameTag.SelectedIndex = tagCurrentFile;
-                        lblVideoTitle.Text = lstVideosWithSameTag.Items[tagCurrentFile].ToString();
+                        lblVideoTitle.Text = "Now playing: " + lstVideosWithSameTag.Items[tagCurrentFile].ToString();
 
                         // Kiểm tra xem video hiện tại có đang phát hay không
                         string selectedFilePath = tagFilteredFiles[tagCurrentFile];
@@ -392,7 +388,7 @@ namespace VideoPlayer
                 tagCurrentFile = lstVideosWithSameTag.SelectedIndex;
                 string selectedFilePath = tagFilteredFiles[tagCurrentFile];
                 PlayFile(selectedFilePath);
-                lblVideoTitle.Text = lstVideosWithSameTag.Items[tagCurrentFile].ToString();
+                lblVideoTitle.Text = "Now playing: " + lstVideosWithSameTag.Items[tagCurrentFile].ToString();
 
                 // Đồng bộ currentFile với tab "Videos"
                 int newIndex = filteredFiles.IndexOf(selectedFilePath);
@@ -415,10 +411,14 @@ namespace VideoPlayer
             dbManager.UpdateLastOpened(url);
 
             // Đồng bộ currentFile và categoryCurrentFile
-            int newIndexInVideos = filteredFiles.IndexOf(url);
-            if (newIndexInVideos >= 0)
+            //int newIndexInVideos = filteredFiles.IndexOf(url);
+            //if (newIndexInVideos >= 0)
+            //{
+            //    currentFile = newIndexInVideos;
+            //    PlayList.SelectedIndex = currentFile;
+            //}
+            if (currentFile >= 0 && currentFile < PlayList.Items.Count)
             {
-                currentFile = newIndexInVideos;
                 PlayList.SelectedIndex = currentFile;
             }
 
@@ -430,47 +430,18 @@ namespace VideoPlayer
             }
         }
 
-
-
-
-
-
         private void tabVideoInformation_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Kiểm tra nếu tab hiện tại là tab "Category"
             if (tabVideoInformation.SelectedTab == tabCategory)
             {
-                LoadVideosByCatgoryFromDatabase();
+                LoadVideosByCategoryFromDatabase();
             }
             // Kiểm tra nếu tab hiện tại là tab "Tags"
             else if (tabVideoInformation.SelectedTab == tabTags)
             {
                 LoadTagsByVideo();
             }
-        }
-
-        private void VideoPlayerStateChangeEvent(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
-        {
-
-        }
-
-        private void TimerEvent(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LoadCategory()
-        {
-
-        }
-
-        private void LoadTags() {
-        
-        }
-
-        private void VideoPlayer_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void categoriesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -482,6 +453,7 @@ namespace VideoPlayer
             {
                 manageForm.ShowDialog();
             }
+            tabVideoInformation.SelectedIndex = 0;
             LoadVideosFromDatabase();
         }
 
@@ -493,6 +465,7 @@ namespace VideoPlayer
             {
                 manageForm.ShowDialog();
             }
+            tabVideoInformation.SelectedIndex = 0;
             LoadVideosFromDatabase();
         }
 
@@ -504,6 +477,7 @@ namespace VideoPlayer
             {
                 manageForm.ShowDialog();
             }
+            tabVideoInformation.SelectedIndex = 0;
             LoadVideosFromDatabase(); 
         }
 
@@ -568,7 +542,10 @@ namespace VideoPlayer
                 }
             };
         }
-        
-        
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -45,3 +45,7 @@ D:\dotNET\branch-manageform\Project\VideoPlayer\obj\Debug\VideoPlayer.csproj.Gen
 D:\dotNET\branch-manageform\Project\VideoPlayer\obj\Debug\VideoPlayer.csproj.CoreCompileInputs.cache
 D:\dotNET\branch-manageform\Project\VideoPlayer\obj\Debug\VideoPlayer.exe
 D:\dotNET\branch-manageform\Project\VideoPlayer\obj\Debug\VideoPlayer.pdb
+D:\dotNET\branch-manageform\Project\VideoPlayer\bin\Debug\VideoPlayer.exe.manifest
+D:\dotNET\branch-manageform\Project\VideoPlayer\bin\Debug\VideoPlayer.application
+D:\dotNET\branch-manageform\Project\VideoPlayer\obj\Debug\VideoPlayer.exe.manifest
+D:\dotNET\branch-manageform\Project\VideoPlayer\obj\Debug\VideoPlayer.application
