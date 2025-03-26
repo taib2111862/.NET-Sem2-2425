@@ -114,6 +114,7 @@ namespace VideoPlayer
                 {
                     PlayList.SelectedIndex = currentFile;
                     PlayFile(filteredFiles[currentFile]); // Phát video đầu tiên
+                    lblVideoTitle.Text = PlayList.Items[currentFile].ToString();
                 }
             }
             catch (Exception ex)
@@ -129,6 +130,7 @@ namespace VideoPlayer
                 currentFile = PlayList.SelectedIndex;
                 string selectedFilePath = filteredFiles[currentFile];
                 PlayFile(selectedFilePath);
+                lblVideoTitle.Text = PlayList.Items[currentFile].ToString();
             }
         }
 

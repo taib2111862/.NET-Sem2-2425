@@ -41,6 +41,7 @@
             this.tblMediaPlayer = new System.Windows.Forms.TableLayoutPanel();
             this.VideoPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.tblVideoInformation = new System.Windows.Forms.TableLayoutPanel();
+            this.lblVideoTitle = new System.Windows.Forms.Label();
             this.tabVideoInformation = new System.Windows.Forms.TabControl();
             this.tabVideos = new System.Windows.Forms.TabPage();
             this.PlayList = new System.Windows.Forms.ListBox();
@@ -56,13 +57,12 @@
             this.tabTags = new System.Windows.Forms.TabPage();
             this.tblTags = new System.Windows.Forms.TableLayoutPanel();
             this.lblVideosWithSameTag = new System.Windows.Forms.Label();
+            this.lblVideoTags = new System.Windows.Forms.Label();
             this.lstVideoTags = new System.Windows.Forms.ListBox();
             this.lstVideosWithSameTag = new System.Windows.Forms.ListBox();
-            this.lblVideoTitle = new System.Windows.Forms.Label();
-            this.tmrTimer = new System.Windows.Forms.Timer(this.components);
-            this.lblVideoTags = new System.Windows.Forms.Label();
             this.lblManageVideoTag = new System.Windows.Forms.Label();
             this.clbAllTags = new System.Windows.Forms.CheckedListBox();
+            this.tmrTimer = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.tblMediaPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VideoPlayer)).BeginInit();
@@ -85,8 +85,8 @@
             this.manageToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1373, 31);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(856, 25);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -96,20 +96,20 @@
             this.openToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(49, 27);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(41, 23);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(136, 28);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenFileEvent);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(136, 28);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // manageToolStripMenuItem
@@ -119,25 +119,25 @@
             this.tagsToolStripMenuItem,
             this.videosToolStripMenuItem});
             this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
-            this.manageToolStripMenuItem.Size = new System.Drawing.Size(86, 27);
+            this.manageToolStripMenuItem.Size = new System.Drawing.Size(71, 23);
             this.manageToolStripMenuItem.Text = "&Manage";
             // 
             // categoriesToolStripMenuItem
             // 
             this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
-            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(175, 28);
+            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
             this.categoriesToolStripMenuItem.Text = "Categories";
             // 
             // tagsToolStripMenuItem
             // 
             this.tagsToolStripMenuItem.Name = "tagsToolStripMenuItem";
-            this.tagsToolStripMenuItem.Size = new System.Drawing.Size(175, 28);
+            this.tagsToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
             this.tagsToolStripMenuItem.Text = "Tags";
             // 
             // videosToolStripMenuItem
             // 
             this.videosToolStripMenuItem.Name = "videosToolStripMenuItem";
-            this.videosToolStripMenuItem.Size = new System.Drawing.Size(175, 28);
+            this.videosToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
             this.videosToolStripMenuItem.Text = "Videos";
             // 
             // tblMediaPlayer
@@ -149,12 +149,12 @@
             this.tblMediaPlayer.Controls.Add(this.VideoPlayer, 0, 0);
             this.tblMediaPlayer.Controls.Add(this.tblVideoInformation, 1, 0);
             this.tblMediaPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblMediaPlayer.Location = new System.Drawing.Point(0, 31);
+            this.tblMediaPlayer.Location = new System.Drawing.Point(0, 25);
             this.tblMediaPlayer.Margin = new System.Windows.Forms.Padding(0);
             this.tblMediaPlayer.Name = "tblMediaPlayer";
             this.tblMediaPlayer.RowCount = 1;
             this.tblMediaPlayer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblMediaPlayer.Size = new System.Drawing.Size(1373, 696);
+            this.tblMediaPlayer.Size = new System.Drawing.Size(856, 431);
             this.tblMediaPlayer.TabIndex = 5;
             // 
             // VideoPlayer
@@ -165,7 +165,7 @@
             this.VideoPlayer.Margin = new System.Windows.Forms.Padding(0);
             this.VideoPlayer.Name = "VideoPlayer";
             this.VideoPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("VideoPlayer.OcxState")));
-            this.VideoPlayer.Size = new System.Drawing.Size(961, 696);
+            this.VideoPlayer.Size = new System.Drawing.Size(599, 431);
             this.VideoPlayer.TabIndex = 5;
             this.VideoPlayer.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.VideoPlayerStateChangeEvent);
             this.VideoPlayer.Enter += new System.EventHandler(this.VideoPlayer_Enter);
@@ -177,15 +177,29 @@
             this.tblVideoInformation.Controls.Add(this.lblVideoTitle, 0, 0);
             this.tblVideoInformation.Controls.Add(this.tabVideoInformation, 0, 1);
             this.tblVideoInformation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblVideoInformation.Location = new System.Drawing.Point(964, 2);
-            this.tblVideoInformation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tblVideoInformation.Location = new System.Drawing.Point(601, 1);
+            this.tblVideoInformation.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tblVideoInformation.Name = "tblVideoInformation";
             this.tblVideoInformation.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tblVideoInformation.RowCount = 2;
             this.tblVideoInformation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.890499F));
             this.tblVideoInformation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.1095F));
-            this.tblVideoInformation.Size = new System.Drawing.Size(406, 692);
+            this.tblVideoInformation.Size = new System.Drawing.Size(253, 429);
             this.tblVideoInformation.TabIndex = 6;
+            // 
+            // lblVideoTitle
+            // 
+            this.lblVideoTitle.AutoSize = true;
+            this.lblVideoTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblVideoTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVideoTitle.Location = new System.Drawing.Point(4, 4);
+            this.lblVideoTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lblVideoTitle.Name = "lblVideoTitle";
+            this.lblVideoTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblVideoTitle.Size = new System.Drawing.Size(245, 25);
+            this.lblVideoTitle.TabIndex = 8;
+            this.lblVideoTitle.Text = "label1";
+            this.lblVideoTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tabVideoInformation
             // 
@@ -194,22 +208,22 @@
             this.tabVideoInformation.Controls.Add(this.tabTags);
             this.tabVideoInformation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabVideoInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabVideoInformation.Location = new System.Drawing.Point(3, 56);
-            this.tabVideoInformation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabVideoInformation.Location = new System.Drawing.Point(2, 34);
+            this.tabVideoInformation.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabVideoInformation.Name = "tabVideoInformation";
             this.tabVideoInformation.SelectedIndex = 0;
-            this.tabVideoInformation.Size = new System.Drawing.Size(400, 634);
+            this.tabVideoInformation.Size = new System.Drawing.Size(249, 394);
             this.tabVideoInformation.TabIndex = 7;
             // 
             // tabVideos
             // 
             this.tabVideos.Controls.Add(this.PlayList);
             this.tabVideos.Controls.Add(this.tblSearchVideos);
-            this.tabVideos.Location = new System.Drawing.Point(4, 35);
-            this.tabVideos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabVideos.Location = new System.Drawing.Point(4, 29);
+            this.tabVideos.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabVideos.Name = "tabVideos";
-            this.tabVideos.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabVideos.Size = new System.Drawing.Size(392, 595);
+            this.tabVideos.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tabVideos.Size = new System.Drawing.Size(241, 361);
             this.tabVideos.TabIndex = 2;
             this.tabVideos.Text = "Videos";
             this.tabVideos.UseVisualStyleBackColor = true;
@@ -219,13 +233,13 @@
             this.PlayList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlayList.FormattingEnabled = true;
             this.PlayList.HorizontalScrollbar = true;
-            this.PlayList.ItemHeight = 26;
-            this.PlayList.Location = new System.Drawing.Point(3, 2);
-            this.PlayList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PlayList.ItemHeight = 20;
+            this.PlayList.Location = new System.Drawing.Point(2, 1);
+            this.PlayList.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.PlayList.Name = "PlayList";
             this.PlayList.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.PlayList.ScrollAlwaysVisible = true;
-            this.PlayList.Size = new System.Drawing.Size(386, 591);
+            this.PlayList.Size = new System.Drawing.Size(237, 359);
             this.PlayList.TabIndex = 1;
             this.PlayList.SelectedIndexChanged += new System.EventHandler(this.PlayList_SelectedIndexChanged);
             // 
@@ -236,43 +250,43 @@
             this.tblSearchVideos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.57758F));
             this.tblSearchVideos.Controls.Add(this.txtSearchVideos, 1, 0);
             this.tblSearchVideos.Controls.Add(this.btnSearchVideos, 0, 0);
-            this.tblSearchVideos.Location = new System.Drawing.Point(3, 6);
-            this.tblSearchVideos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tblSearchVideos.Location = new System.Drawing.Point(2, 5);
+            this.tblSearchVideos.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tblSearchVideos.Name = "tblSearchVideos";
             this.tblSearchVideos.RowCount = 1;
             this.tblSearchVideos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblSearchVideos.Size = new System.Drawing.Size(464, 52);
+            this.tblSearchVideos.Size = new System.Drawing.Size(348, 42);
             this.tblSearchVideos.TabIndex = 0;
             // 
             // txtSearchVideos
             // 
             this.txtSearchVideos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSearchVideos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchVideos.Location = new System.Drawing.Point(5, 5);
-            this.txtSearchVideos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtSearchVideos.Location = new System.Drawing.Point(4, 4);
+            this.txtSearchVideos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearchVideos.Name = "txtSearchVideos";
-            this.txtSearchVideos.Size = new System.Drawing.Size(402, 34);
+            this.txtSearchVideos.Size = new System.Drawing.Size(301, 29);
             this.txtSearchVideos.TabIndex = 0;
             // 
             // btnSearchVideos
             // 
             this.btnSearchVideos.AutoSize = true;
             this.btnSearchVideos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearchVideos.BackgroundImage")));
-            this.btnSearchVideos.Location = new System.Drawing.Point(416, 2);
-            this.btnSearchVideos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearchVideos.Location = new System.Drawing.Point(312, 1);
+            this.btnSearchVideos.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnSearchVideos.Name = "btnSearchVideos";
-            this.btnSearchVideos.Size = new System.Drawing.Size(45, 36);
+            this.btnSearchVideos.Size = new System.Drawing.Size(34, 29);
             this.btnSearchVideos.TabIndex = 1;
             this.btnSearchVideos.UseVisualStyleBackColor = true;
             // 
             // tabCategory
             // 
             this.tabCategory.Controls.Add(this.tblCategory);
-            this.tabCategory.Location = new System.Drawing.Point(4, 35);
-            this.tabCategory.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
+            this.tabCategory.Location = new System.Drawing.Point(4, 29);
+            this.tabCategory.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.tabCategory.Name = "tabCategory";
-            this.tabCategory.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabCategory.Size = new System.Drawing.Size(392, 595);
+            this.tabCategory.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tabCategory.Size = new System.Drawing.Size(293, 485);
             this.tabCategory.TabIndex = 0;
             this.tabCategory.Text = "Category";
             this.tabCategory.UseVisualStyleBackColor = true;
@@ -286,8 +300,8 @@
             this.tblCategory.Controls.Add(this.lblChangeCategory, 0, 2);
             this.tblCategory.Controls.Add(this.cboCategories, 0, 3);
             this.tblCategory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblCategory.Location = new System.Drawing.Point(3, 2);
-            this.tblCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tblCategory.Location = new System.Drawing.Point(2, 1);
+            this.tblCategory.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tblCategory.Name = "tblCategory";
             this.tblCategory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tblCategory.RowCount = 4;
@@ -295,21 +309,21 @@
             this.tblCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tblCategory.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblCategory.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tblCategory.Size = new System.Drawing.Size(386, 591);
+            this.tblCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tblCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tblCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tblCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tblCategory.Size = new System.Drawing.Size(289, 483);
             this.tblCategory.TabIndex = 0;
             // 
             // lblCategoryPlaylist
             // 
             this.lblCategoryPlaylist.AutoSize = true;
             this.lblCategoryPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoryPlaylist.Location = new System.Drawing.Point(8, 5);
-            this.lblCategoryPlaylist.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.lblCategoryPlaylist.Location = new System.Drawing.Point(81, 4);
+            this.lblCategoryPlaylist.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblCategoryPlaylist.Name = "lblCategoryPlaylist";
-            this.lblCategoryPlaylist.Size = new System.Drawing.Size(373, 31);
+            this.lblCategoryPlaylist.Size = new System.Drawing.Size(204, 52);
             this.lblCategoryPlaylist.TabIndex = 0;
             this.lblCategoryPlaylist.Text = "Videos with Same Category";
             // 
@@ -318,11 +332,11 @@
             this.lstVideosWithCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstVideosWithCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstVideosWithCategory.FormattingEnabled = true;
-            this.lstVideosWithCategory.ItemHeight = 29;
-            this.lstVideosWithCategory.Location = new System.Drawing.Point(3, 43);
-            this.lstVideosWithCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lstVideosWithCategory.ItemHeight = 24;
+            this.lstVideosWithCategory.Location = new System.Drawing.Point(2, 61);
+            this.lstVideosWithCategory.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.lstVideosWithCategory.Name = "lstVideosWithCategory";
-            this.lstVideosWithCategory.Size = new System.Drawing.Size(380, 461);
+            this.lstVideosWithCategory.Size = new System.Drawing.Size(285, 351);
             this.lstVideosWithCategory.TabIndex = 1;
             // 
             // lblChangeCategory
@@ -330,10 +344,10 @@
             this.lblChangeCategory.AutoSize = true;
             this.lblChangeCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblChangeCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangeCategory.Location = new System.Drawing.Point(5, 511);
-            this.lblChangeCategory.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.lblChangeCategory.Location = new System.Drawing.Point(4, 417);
+            this.lblChangeCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblChangeCategory.Name = "lblChangeCategory";
-            this.lblChangeCategory.Size = new System.Drawing.Size(376, 31);
+            this.lblChangeCategory.Size = new System.Drawing.Size(281, 26);
             this.lblChangeCategory.TabIndex = 2;
             this.lblChangeCategory.Text = "Change Category";
             // 
@@ -341,20 +355,20 @@
             // 
             this.cboCategories.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboCategories.FormattingEnabled = true;
-            this.cboCategories.Location = new System.Drawing.Point(5, 552);
-            this.cboCategories.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cboCategories.Location = new System.Drawing.Point(4, 451);
+            this.cboCategories.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboCategories.Name = "cboCategories";
-            this.cboCategories.Size = new System.Drawing.Size(376, 34);
+            this.cboCategories.Size = new System.Drawing.Size(281, 28);
             this.cboCategories.TabIndex = 3;
             // 
             // tabTags
             // 
             this.tabTags.Controls.Add(this.tblTags);
-            this.tabTags.Location = new System.Drawing.Point(4, 35);
-            this.tabTags.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabTags.Location = new System.Drawing.Point(4, 29);
+            this.tabTags.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabTags.Name = "tabTags";
-            this.tabTags.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabTags.Size = new System.Drawing.Size(392, 595);
+            this.tabTags.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tabTags.Size = new System.Drawing.Size(293, 485);
             this.tabTags.TabIndex = 1;
             this.tabTags.Text = "Tags";
             this.tabTags.UseVisualStyleBackColor = true;
@@ -370,8 +384,8 @@
             this.tblTags.Controls.Add(this.lblManageVideoTag, 0, 4);
             this.tblTags.Controls.Add(this.clbAllTags, 0, 5);
             this.tblTags.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblTags.Location = new System.Drawing.Point(3, 2);
-            this.tblTags.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tblTags.Location = new System.Drawing.Point(2, 1);
+            this.tblTags.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tblTags.Name = "tblTags";
             this.tblTags.RowCount = 6;
             this.tblTags.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -380,7 +394,7 @@
             this.tblTags.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tblTags.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblTags.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tblTags.Size = new System.Drawing.Size(386, 591);
+            this.tblTags.Size = new System.Drawing.Size(289, 483);
             this.tblTags.TabIndex = 0;
             // 
             // lblVideosWithSameTag
@@ -388,74 +402,56 @@
             this.lblVideosWithSameTag.AutoSize = true;
             this.lblVideosWithSameTag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblVideosWithSameTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVideosWithSameTag.Location = new System.Drawing.Point(5, 201);
-            this.lblVideosWithSameTag.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.lblVideosWithSameTag.Location = new System.Drawing.Point(4, 165);
+            this.lblVideosWithSameTag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblVideosWithSameTag.Name = "lblVideosWithSameTag";
-            this.lblVideosWithSameTag.Size = new System.Drawing.Size(376, 31);
+            this.lblVideosWithSameTag.Size = new System.Drawing.Size(281, 26);
             this.lblVideosWithSameTag.TabIndex = 3;
             this.lblVideosWithSameTag.Text = "Videos with Same Tag";
-            // 
-            // lstVideoTags
-            // 
-            this.lstVideoTags.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstVideoTags.FormattingEnabled = true;
-            this.lstVideoTags.ItemHeight = 26;
-            this.lstVideoTags.Location = new System.Drawing.Point(3, 43);
-            this.lstVideoTags.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lstVideoTags.Name = "lstVideoTags";
-            this.lstVideoTags.Size = new System.Drawing.Size(380, 151);
-            this.lstVideoTags.TabIndex = 2;
-            // 
-            // lstVideosWithSameTag
-            // 
-            this.lstVideosWithSameTag.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstVideosWithSameTag.FormattingEnabled = true;
-            this.lstVideosWithSameTag.ItemHeight = 26;
-            this.lstVideosWithSameTag.Location = new System.Drawing.Point(3, 239);
-            this.lstVideosWithSameTag.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lstVideosWithSameTag.Name = "lstVideosWithSameTag";
-            this.lstVideosWithSameTag.Size = new System.Drawing.Size(380, 151);
-            this.lstVideosWithSameTag.TabIndex = 4;
-            // 
-            // lblVideoTitle
-            // 
-            this.lblVideoTitle.AutoSize = true;
-            this.lblVideoTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblVideoTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVideoTitle.Location = new System.Drawing.Point(5, 5);
-            this.lblVideoTitle.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.lblVideoTitle.Name = "lblVideoTitle";
-            this.lblVideoTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblVideoTitle.Size = new System.Drawing.Size(396, 44);
-            this.lblVideoTitle.TabIndex = 8;
-            this.lblVideoTitle.Text = "label1";
-            this.lblVideoTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // tmrTimer
-            // 
-            this.tmrTimer.Tick += new System.EventHandler(this.TimerEvent);
             // 
             // lblVideoTags
             // 
             this.lblVideoTags.AutoSize = true;
             this.lblVideoTags.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblVideoTags.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVideoTags.Location = new System.Drawing.Point(5, 5);
-            this.lblVideoTags.Margin = new System.Windows.Forms.Padding(5);
+            this.lblVideoTags.Location = new System.Drawing.Point(4, 4);
+            this.lblVideoTags.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblVideoTags.Name = "lblVideoTags";
-            this.lblVideoTags.Size = new System.Drawing.Size(376, 31);
+            this.lblVideoTags.Size = new System.Drawing.Size(281, 26);
             this.lblVideoTags.TabIndex = 1;
             this.lblVideoTags.Text = "Video\'s Tags";
+            // 
+            // lstVideoTags
+            // 
+            this.lstVideoTags.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstVideoTags.FormattingEnabled = true;
+            this.lstVideoTags.ItemHeight = 20;
+            this.lstVideoTags.Location = new System.Drawing.Point(2, 35);
+            this.lstVideoTags.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.lstVideoTags.Name = "lstVideoTags";
+            this.lstVideoTags.Size = new System.Drawing.Size(285, 125);
+            this.lstVideoTags.TabIndex = 2;
+            // 
+            // lstVideosWithSameTag
+            // 
+            this.lstVideosWithSameTag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstVideosWithSameTag.FormattingEnabled = true;
+            this.lstVideosWithSameTag.ItemHeight = 20;
+            this.lstVideosWithSameTag.Location = new System.Drawing.Point(2, 196);
+            this.lstVideosWithSameTag.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.lstVideosWithSameTag.Name = "lstVideosWithSameTag";
+            this.lstVideosWithSameTag.Size = new System.Drawing.Size(285, 125);
+            this.lstVideosWithSameTag.TabIndex = 4;
             // 
             // lblManageVideoTag
             // 
             this.lblManageVideoTag.AutoSize = true;
             this.lblManageVideoTag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblManageVideoTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblManageVideoTag.Location = new System.Drawing.Point(5, 397);
-            this.lblManageVideoTag.Margin = new System.Windows.Forms.Padding(5);
+            this.lblManageVideoTag.Location = new System.Drawing.Point(4, 326);
+            this.lblManageVideoTag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblManageVideoTag.Name = "lblManageVideoTag";
-            this.lblManageVideoTag.Size = new System.Drawing.Size(376, 31);
+            this.lblManageVideoTag.Size = new System.Drawing.Size(281, 26);
             this.lblManageVideoTag.TabIndex = 5;
             this.lblManageVideoTag.Text = "Manage Video\'s Tags";
             // 
@@ -463,21 +459,26 @@
             // 
             this.clbAllTags.Dock = System.Windows.Forms.DockStyle.Fill;
             this.clbAllTags.FormattingEnabled = true;
-            this.clbAllTags.Location = new System.Drawing.Point(3, 436);
+            this.clbAllTags.Location = new System.Drawing.Point(2, 359);
+            this.clbAllTags.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.clbAllTags.Name = "clbAllTags";
-            this.clbAllTags.Size = new System.Drawing.Size(380, 152);
+            this.clbAllTags.Size = new System.Drawing.Size(285, 121);
             this.clbAllTags.TabIndex = 7;
+            // 
+            // tmrTimer
+            // 
+            this.tmrTimer.Tick += new System.EventHandler(this.TimerEvent);
             // 
             // frmMediaPlayer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1373, 727);
+            this.ClientSize = new System.Drawing.Size(856, 456);
             this.Controls.Add(this.tblMediaPlayer);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "frmMediaPlayer";
             this.Text = "Media Player";
             this.menuStrip1.ResumeLayout(false);
